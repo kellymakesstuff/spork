@@ -1,8 +1,8 @@
 ## Overview
 
-**FORK**
+**SPORK**
 
-FORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by key word. Find substitutions for common ingredients. Add your own personal recipes to our database.
+SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by key word. Find substitutions for common ingredients. Add your own personal recipes to our database.
 
 ### Team Members
 
@@ -10,7 +10,7 @@ FORK is a simple to use application to find your new favorite recipes. Search fo
 - [Josh](https://github.com/rizekj12)
 - [Kelly](https://github.com/kellymakesstuff) (Team Leader)
 - [Zach](https://github.com/zoobieloo88)
-- [Zain] (https://github.com/zainsattar18)
+- [Zain](https://github.com/zainsattar18)
 
 ### Team Expectations
 Team values and expectations can be found on our project's [Group Expectation Setting Document](https://github.com/kellymakesstuff/spork/blob/dev/planning.txt).

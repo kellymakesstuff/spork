@@ -46,7 +46,7 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 #### Component Hierarchy
 
-[Whimsacle Diagram](https://whimsical.com/5nYPPtJNcw6u8GpJnbNtSR)
+[Whimsicle Diagram](https://whimsical.com/5nYPPtJNcw6u8GpJnbNtSR)
 
 <br>
 

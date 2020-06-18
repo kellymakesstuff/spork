@@ -1,6 +1,7 @@
 const Recipe = require("../models/recipe");
 const db = require("../db/connection");
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
 const getRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.find();

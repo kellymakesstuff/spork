@@ -3,10 +3,17 @@ const Schema = mongoose.Schema
 
 const Recipe = new Schema(
   {
-    name: { type: String, required: true },
-    imgURL: { type: String, required: true },
-    description: { type: String, required: true },
-    price: { type: String, required: true }
+    dishName: { type: String, required: true },
+    imgUrl: { type: String, required: true },
+    starRating: { type: Number, min: 0, max: 5, required: true },
+    ingredients: { type: String, required: true },
+    instructions: [{
+      stepOne: { type: String, required: true },
+      stepTwo: { type: String, required: true },
+      stepThree: { type: String, required: true },
+      stepFour: { type: String, required: true }
+    }],
+    prepTime: { type: String, required: true },
   },
   { timestamps: true }
 )

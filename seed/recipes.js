@@ -4,6 +4,7 @@ const Recipe = require('../models/recipe')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
+  await Recipe.deleteMany()
   const recipes = [
     {
       "dishName": "Maple Salmon",
@@ -135,7 +136,32 @@ const main = async () => {
       }],
       "prepTime": "35 minutes"
     },
-
+    {
+      "dishName": "Garlic Butter Steak Bites",
+      "imgUrl": 'https://www.jocooks.com/wp-content/uploads/2018/10/garlic-butter-steak-bites-1-2.jpg',
+      "starRating": 5,
+      "ingredients": "4 cloves garlic, 1/2 teaspoon freshly ground black pepper, 1/4 cup chopped fresh parsley leaves, 2 pounds thick-cut New York strip steaks, 1/2 teaspoon kosher salt, 8 tablespoons (1 stick) unsalted butter",
+      "instructions": [{
+        "stepOne": 'Mince 4 garlic cloves. Transfer to a bowl and add 1/2 teaspoon freshly ground black pepper. Chop until you have 1/4 cup fresh parsley leaves, then transfer to a small bowl.',
+        "stepTwo": 'Cut 2 pounds New York strip steak into 1-inch cubes, then season it with 1/2 teaspoon kosher salt.',
+        "stepThree": 'Melt 8 tablespoons (1 stick) unsalted butter in a large skillet over medium high-heat. Add the steak cubes and sear until browned, flipping them halfway through, 6 to 8 minutes total.',
+        "stepFour": 'Add the garlic and pepper and cook for 1 minute more. Remove from the heat and garnish with the parsley.'
+      }],
+      "prepTime": '25 minutes'
+    },
+    {
+      "dishName": 'Sirloin Steak Sandwiches',
+      "imgUrl": 'https://s23991.pcdn.co/wp-content/uploads/fly-images/97617/jamie-oliver-steak-sandwiches-recipe-400x300-c.jpg',
+      "starRating": 5,
+      "ingredients": "1 pound sirloin steak, 1 teaspoon kosher salt, 1/4 teaspoon freshly ground black pepper, 1/3 cup mayonnaise, 1/4 cup whole-grain mustard, 4 onion rolls, sliced in half lengthwise",
+      "instructions": [{
+        "stepOne": 'Arrange a rack about 4 inches from the broiler and heat the broiler to high. Line a rimmed baking sheet with aluminum foil. Coat a wire rack with cooking spray and fit over the baking sheet.',
+        "stepTwo": 'Pat the steak dry with a paper towel. Season both sides with the salt and pepper and place on the wire rack. Broil (the steak should be 1 to 2 inches from the broilers heating element) for 5 minutes',
+        "stepThree": 'Let the steak rest for 10 minutes on the rack',
+        "stepFour": 'Spread a thick layer of Dijon mayonnaise on the cut sides of the rolls. Divide the steak and arugula between the rolls and close them to form sandwiches. Serve warm or at room temperature.'
+      }],
+      "prepTime": '30 minutes'
+    }
 
   ]
 

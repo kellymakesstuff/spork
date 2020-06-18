@@ -1,0 +1,95 @@
+- set up github stuff
+  potentially with Felicia and Kelly heading different branches
+
+API needs
+- building API
+- admin can CRUD
+- Content spreadsheet (both teams)
+
+Screens
+first screen
+- logo
+- text
+
+search bar
+  recipe button 
+  substitute 
+Search abilities
+  recipe
+    filter by name of recipe, ingredient, whatever else
+  substitute
+    filter by ingredient
+
+Recipe component carousel
+    Trending Recipes
+    Top Chicken RecipesTop BBQ Recipes
+    Today's quick an easy recipes
+
+inidvidialRecipe components in carousel
+  route to fullRecipe compoent
+
+RecipeDetail compoent
+  image
+  div1
+    description, rating, duration
+  div2
+    ingredients list
+  div3
+    instructions
+CRUD functionality: 
+edit recipe
+delete recipe
+
+RecipeResults
+CRUD functionality:
+add recipe
+
+SubstituteResults
+
+----
+
+Mobile version
+
+RecipeResults
+  nutrition facts 
+
+
+post MVP
+filters on search
+
+Priorities:
+1. Build API 
+2. search (same component can be used universally)
+3. first search render (with recipe)
+4. recipe detail page 
+5. substitution search and detail page (including measurement conversion)
+6. API crud options
+7. CSS and flexbox
+8. first screen with Carousel 
+9. media query for mobile version
+
+Order of functions (loool):
+1. initialize git
+2.build file structure 
+3. build full backend 
+4. Deploy full backend
+5. Create react app
+6. create all files (blank) 
+7. create the service file 
+8. build functions for CRUD in service file 
+9. Get CRUD functionality working in respective components
+10. Create the universal CSS 
+11. Team splits to build components
+
+
+Documents to track:
+1. Workflow and Component progress
+2. Class names 
+
+Post MVP:
+- filters on the search results 
+- maybe authentication?! @Zain Sattar SEI-NY 
+
+CRUD options:
+UX team - where would you see most edit/delete/add options? possibly substitution page or recipe page?
+(edited)

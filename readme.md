@@ -46,13 +46,13 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app. Suggestion: Use [Whimsical](https://whimsical.com/) to create your diagram.
+[Whimsacle Diagram](https://whimsical.com/5nYPPtJNcw6u8GpJnbNtSR)
 
 <br>
 
 ### Server (Back End)
 
-#### Database Schema 
+#### Database Schema
 
 > Use this section to outline the schema for your database models.
 

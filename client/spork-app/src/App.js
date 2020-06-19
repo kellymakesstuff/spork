@@ -3,6 +3,7 @@ import Home from './components/Home'
 import React, { useEffect, useState } from 'react'
 
 
+
 export default function App() {
   
   const [recipe, updateRecipe] = useState([])
@@ -10,9 +11,9 @@ export default function App() {
   
   useEffect( async() => {
     let data = await getRecipes()
-    console.log(data)
+    // console.log(data)
     updateRecipe(data)
-    // console.log(recipe)
+    console.log({recipe})
   },[])
   
 
@@ -20,7 +21,8 @@ export default function App() {
   return (
     <div>
       <h2>Hello</h2>
-      
+      {/* <DummyComponent /> */}
+      <Home recipe={recipe} />
   
     </div>
   )

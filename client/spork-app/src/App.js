@@ -7,20 +7,21 @@ export default function App() {
   
   const [recipe, updateRecipe] = useState([])
   
-  useEffect(() => {
-    apiCall()
-  },[])
   
-  let apiCall = async () => {
+  useEffect( async() => {
     let data = await getRecipes()
     console.log(data)
-  }
+    updateRecipe(data)
+    // console.log(recipe)
+  },[])
   
+
 
   return (
     <div>
+      <h2>Hello</h2>
       
-      
+  
     </div>
   )
 }

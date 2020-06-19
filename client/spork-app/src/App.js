@@ -1,6 +1,7 @@
 import { getRecipes } from './services/recipes'
 import Home from './components/Home'
 import React, { useEffect, useState } from 'react'
+import DummyComponent from './components/DummyComponent'
 
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <div>
       <h2>Hello</h2>
-
+      < DummyComponent />
     </div>
   )
 }

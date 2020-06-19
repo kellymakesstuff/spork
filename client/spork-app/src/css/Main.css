@@ -10,11 +10,12 @@ p {
     color: black
 }
 
-h1 h2 h3 {
+h1, h2, h3 {
     color: black;
     font-family: 'Red Hat Display', sans-serif;
     font-weight: bold;
 }
+
 
 a {
     color: black;

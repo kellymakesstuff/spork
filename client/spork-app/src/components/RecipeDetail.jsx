@@ -1,4 +1,5 @@
 import React from 'react'
+import BeautyStars from "beauty-stars"
 
 export default function RecipeDetail(props) {
 
@@ -9,11 +10,13 @@ export default function RecipeDetail(props) {
 
   return (
     <div>
+      <div className="header">Recipe Details</div>
       {filteredData.map(recipes =>
           <div className="filter-detail" key={recipes.dishName}>
           {recipes.dishName}
-          <img src={recipes.imgUrl} alt={recipes.dishName} width="250px"/>
-          <div className="star">{recipes.starRating}</div>
+          <img src={recipes.imgUrl} alt={recipes.dishName} width="250px" />
+          <div className="star">{recipes.starRating}.0</div>
+          <BeautyStars value={recipes.starRating} size="15px" />
           </div>
         )}
       

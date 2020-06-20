@@ -3,6 +3,7 @@ import {Route} from "react-router-dom"
 import { getRecipes } from '../services/recipes'
 import Search from "../components/shared/Search"
 import RecipeDetail from "../components/RecipeDetail"
+import Carousel from "./Carousel"
 
 export default class Home extends Component {
   constructor() {
@@ -46,6 +47,8 @@ export default class Home extends Component {
             onChange={this.handleChange}
           />
           </Route>
+
+          <Carousel data={this.state.recipes}/>
 
       </div>
     )

@@ -11,14 +11,14 @@ function Search(props) {
   return (
     <div>
       <form>
-        <input type="text" value={props.inputValue} onChange={props.onChange} placeholder="Search"/>
+        <input type="text" value={props.inputValue} onChange={props.onChange} placeholder="Search" className="search"/>
       </form>
-      <div>
+      <div className="buttons">
         <Link to="/search/recipes">
-        <button>Recipe</button>
+        <button className="recipe-button">Recipe</button>
         </Link>
         <Link to="/substitute">
-          <button>Substitute</button>
+          <button className="sub-button">Substitute</button>
         </Link>
         
         

@@ -34,3 +34,8 @@ a :hover {
     font-size: 64px;
     line-height: 85px;
 }
+
+.carousel-arrow {
+    height: 60px;
+    width: auto;
+}

@@ -35,14 +35,13 @@ a :hover {
     line-height: 85px;
 }
 
-.search{
+.search {
   height: 24px;
   width:331px;
   border-radius: 10px;
-  
 }
 
-.recipe-button{
+.recipe-button {
   background: #FF8340;
   color:#FDFDFD;
   border-radius: 4px;
@@ -52,7 +51,7 @@ a :hover {
   margin-right: 1ex;
 }
 
-.sub-button{
+.sub-button {
   background: #FF8340;
   color:#FDFDFD;
   border-radius: 4px;
@@ -62,7 +61,7 @@ a :hover {
   margin-left: 1ex;
 }
 
-.buttons{
+.buttons {
   margin-top: 2ex;
 }
 

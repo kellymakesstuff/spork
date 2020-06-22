@@ -1,5 +1,7 @@
 import api from "./apiSetup";
 
+// Regular API call
+
 export const getSubstitution = async () => {
   try {
     const response = await api.get(

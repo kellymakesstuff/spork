@@ -1,11 +1,7 @@
-import React from 'react'
-import { Link } from "react-router-dom"
-import Search from "./shared/Search"
+import React from "react";
+import { Link } from "react-router-dom";
+import Search from "./shared/Search";
 
-function IngredientSubResults() {
-  return (
-    <div>
-      
-    </div>
-  )
+function SubResults() {
+  return <div></div>;
 }

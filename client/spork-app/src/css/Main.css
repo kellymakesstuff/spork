@@ -70,8 +70,53 @@ a :hover {
   width: auto;
 }
 
+<<<<<<< HEAD
 .carousel-image {
   width: 236px;
   height: 212px;
   margin-right: 30px;
 }
+=======
+.sporkLogo{
+  height: 226px;
+  width: 432px;   
+}
+
+/* .headerDiv{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+} */
+
+.headerDiv2{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 40px;
+}
+
+.headerText{
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.headerText2{
+  margin: 30px;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.headerText3{
+  text-align: center;
+  display: block;
+  margin:0;
+  font-weight: bold;
+  font-size:16px;
+}
+
+>>>>>>> 1007c7562555892405485f7152db3efb5f1858b1

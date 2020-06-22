@@ -69,3 +69,9 @@ a :hover {
   height: 60px;
   width: auto;
 }
+
+.carousel-image {
+  width: 236px;
+  height: 212px;
+  margin-right: 30px;
+}

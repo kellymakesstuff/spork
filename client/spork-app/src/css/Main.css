@@ -1,0 +1,71 @@
+body {
+    background: white;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    color: black
+}
+
+h1, h2, h3 {
+    color: black;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: bold;
+}
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a :hover {
+    color: grey
+}
+
+.header {
+    background: #FF8340;
+    height: 99px;
+    font-family: 'Red Hat Display', sans-serif;
+    color: white;
+    font-size: 64px;
+    line-height: 85px;
+}
+
+.search {
+  height: 24px;
+  width:331px;
+  border-radius: 10px;
+}
+
+.recipe-button {
+  background: #FF8340;
+  color:#FDFDFD;
+  border-radius: 4px;
+  filter: drop-shadow(20px);
+  width:150px;
+  height:25px;
+  margin-right: 1ex;
+}
+
+.sub-button {
+  background: #FF8340;
+  color:#FDFDFD;
+  border-radius: 4px;
+  filter: drop-shadow(20px);
+  width:150px;
+  height:25px;
+  margin-left: 1ex;
+}
+
+.buttons {
+  margin-top: 2ex;
+}
+
+.carousel-arrow {
+  height: 60px;
+  width: auto;
+}

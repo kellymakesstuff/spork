@@ -5,7 +5,6 @@ import Search from "../components/shared/Search"
 import RecipeResults from "../components/RecipeResults"
 import Carousel from "./Carousel"
 import RecipeDetail from "../components/RecipeDetail"
-import Carousel from "./Carousel"
 
 export default class Home extends Component {
   constructor() {

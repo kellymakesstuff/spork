@@ -76,9 +76,9 @@ nextSlide = () => {
                     {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" width="150px" height="150px"/>)}
                     <img src ={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
 
-<!--                     <img src={this.state.arrowPrev} onClick={this.state.prevSlide} className="carousel-arrow" /> -->
-<!--                     {firstImages.map((image, index) => <img key={index} src={image} alt="featured recipes" />)} -->
-<!--                     <img src ={this.state.arrowNext} onClick={this.state.nextSlide} className="carousel-arrow" /> -->
+{/* <img src={this.state.arrowPrev} onClick={this.state.prevSlide} className="carousel-arrow" />
+{firstImages.map((image, index) => <img key={index} src={image} alt="featured recipes" />)} 
+<img src ={this.state.arrowNext} onClick={this.state.nextSlide} className="carousel-arrow" /> */}
 
                 </div>
             </div>

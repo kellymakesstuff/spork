@@ -140,7 +140,7 @@ const main = async () => {
       "dishName": "Garlic Butter Steak Bites",
       "imgUrl": 'https://www.jocooks.com/wp-content/uploads/2018/10/garlic-butter-steak-bites-1-2.jpg',
       "starRating": 5,
-      "ingredients": "4 cloves garlic, 1/2 teaspoon freshly ground black pepper, 1/4 cup chopped fresh parsley leaves, 2 pounds thick-cut New York strip steaks, 1/2 teaspoon kosher salt, 8 tablespoons (1 stick) unsalted butter",
+      "ingredients": `4 cloves garlic, 1/2 teaspoon freshly ground black pepper, 1/4 cup chopped fresh parsley leaves, 2 pounds thick-cut New York strip steaks, 1/2 teaspoon kosher salt, 8 tablespoons (1 stick) unsalted butter`,
       "instructions": [{
         "stepOne": 'Mince 4 garlic cloves. Transfer to a bowl and add 1/2 teaspoon freshly ground black pepper. Chop until you have 1/4 cup fresh parsley leaves, then transfer to a small bowl.',
         "stepTwo": 'Cut 2 pounds New York strip steak into 1-inch cubes, then season it with 1/2 teaspoon kosher salt.',

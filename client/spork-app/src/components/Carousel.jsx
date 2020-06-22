@@ -69,11 +69,11 @@ nextSlide = () => {
 
         return (
             <div className="carousel-container">
-                <h2>Here's the carousel.</h2>
+                <h2>Trending Recipes </h2>
                 <div className="carousel">
 
                     <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
-                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" width="150px" height="150px"/>)}
+                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image"/>)}
                     <img src ={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
 
 {/* <img src={this.state.arrowPrev} onClick={this.state.prevSlide} className="carousel-arrow" />

@@ -7,6 +7,7 @@ import DummyComponent from './components/DummyComponent'
 
 export default function App() {
   const [recipe, updateRecipe] = useState([])
+
   useEffect(async () => {
     let data = await getRecipes()
     // console.log(data)

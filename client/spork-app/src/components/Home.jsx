@@ -5,6 +5,7 @@ import Search from "../components/shared/Search"
 import RecipeResults from "../components/RecipeResults"
 import Carousel from "./Carousel"
 import RecipeDetail from "../components/RecipeDetail"
+import Header from "../components/shared/Header"
 
 export default class Home extends Component {
   constructor() {
@@ -33,7 +34,11 @@ export default class Home extends Component {
   render() {
     return (
       <div>
+          
         <Route path="/" exact>
+        <div className="headerDiv2">
+        <Header />
+        </div>
         <Search 
           data={this.state.recipes}
           inputValue={this.state.inputValue}

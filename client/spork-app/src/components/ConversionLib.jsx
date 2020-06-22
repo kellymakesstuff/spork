@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SubDetail(props) {
+function ConversionLib() {
   return (
     <div>
       

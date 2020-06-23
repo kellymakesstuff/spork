@@ -73,7 +73,7 @@ nextSlide = () => {
                 <div className="carousel">
 
                     <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
-                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image"/>)}
+                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" width="150px" height="150px"/> )}
                     <img src ={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
 
 {/* <img src={this.state.arrowPrev} onClick={this.state.prevSlide} className="carousel-arrow" />

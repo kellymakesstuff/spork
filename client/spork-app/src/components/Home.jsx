@@ -26,7 +26,7 @@ export default class Home extends Component {
     this.setState({
       recipes: response
     })
-    // console.log(response)
+    // console.log(response[0].ingredients[0])
   }
 
   handleChange = (e) => {
@@ -88,6 +88,7 @@ export default class Home extends Component {
           <Carousel data={this.state.fiveStarRecipes} />
           <Carousel data={this.state.vegetarianRecipes} />
           <Carousel data={this.state.randomizedRecipes} />
+          <Carousel data={this.state.recipes} />
         </Route>
 
         <Route exact path="/search/recipes">
@@ -108,7 +109,7 @@ export default class Home extends Component {
           <IngredientSubResults inputValue={this.state.inputValue} />
         </Route>
 
-        <Carousel data={this.state.recipes} />
+        
 
       </div>
     )

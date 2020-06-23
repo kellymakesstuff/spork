@@ -16,7 +16,8 @@ export default class Home extends Component {
       inputValue: "",
       fiveStarRecipes: [],
       vegetarianRecipes: [],
-      randomizedRecipes: []
+      randomizedRecipes: [],
+      meatRecipes:[]
     }
   }
   async componentDidMount() {
@@ -27,6 +28,40 @@ export default class Home extends Component {
       recipes: response
     })
     // console.log(response[0].ingredients[0])
+  }
+
+  carouselDataFilter = async () => {
+    const response = await getRecipes()
+    let starData = []
+    let veggieData = []
+    let meatData = []
+    for (let i = 0; i < response.length; i++) {
+      if (response[i].starRating === 5) {
+        starData.push(response[i])
+      } else if (response[i].dishName.includes("Vegetarian") === true) {
+        veggieData.push(response[i])
+      } else if (response[i].dishName.includes("Chicken") === true || response[i].dishName.includes("Beef") === true || response[i].dishName.includes("Pork") === true) {
+        meatData.push(response[i])
+      }
+    }
+    this.setState({
+      fiveStarRecipes: starData,
+      vegetarianRecipes: veggieData,
+      meatRecipes: meatData
+    })
+  }
+
+randomizeData = async () => {
+    const response = await getRecipes()
+    let randomized = []
+    while (randomized.length < 10) {
+      let randomNum = Math.floor(Math.random() * response.length)
+      let rRecipe = response[randomNum]
+      randomized.push(rRecipe)
+    }
+    this.setState({
+      randomizedRecipes: randomized
+    })
   }
 
   handleChange = (e) => {
@@ -40,16 +75,20 @@ export default class Home extends Component {
     const response = await getRecipes()
     let starData = []
     let veggieData = []
+    let meatData = []
     for (let i = 0; i < response.length; i++) {
       if (response[i].starRating === 5) {
         starData.push(response[i])
       } else if (response[i].dishName.includes("Vegetarian") === true) {
         veggieData.push(response[i])
+      } else if (response[i].dishName.includes("Chicken") === true || response[i].dishName.includes("Beef") === true || response[i].dishName.includes("Pork") === true) {
+        meatData.push(response[i])
       }
     }
     this.setState({
       fiveStarRecipes: starData,
-      vegetarianRecipes: veggieData
+      vegetarianRecipes: veggieData,
+      meatRecipes: meatData
     })
   }
 
@@ -69,12 +108,9 @@ export default class Home extends Component {
 
   }
 
-
-
   render() {
     return (
       <div>
-        {/* <button onClick={this.carouselDataFilter}>Star Recipes!!</button> */}
 
         <Route path="/" exact>
           <div className="headerDiv2">
@@ -85,10 +121,11 @@ export default class Home extends Component {
             inputValue={this.state.inputValue}
             onChange={this.handleChange}
           />
-          <Carousel data={this.state.fiveStarRecipes} />
-          <Carousel data={this.state.vegetarianRecipes} />
-          <Carousel data={this.state.randomizedRecipes} />
-          <Carousel data={this.state.recipes} />
+          <Carousel title="Top rated recipes" data={this.state.fiveStarRecipes} />
+          <Carousel title="Veggie lovers recipes" data={this.state.vegetarianRecipes} />
+          <Carousel title="Meat lovers recipes" data={this.state.meatRecipes} />
+          <Carousel title="Random recipes" data={this.state.randomizedRecipes} />
+          
         </Route>
 
         <Route exact path="/search/recipes">
@@ -109,7 +146,7 @@ export default class Home extends Component {
           <IngredientSubResults inputValue={this.state.inputValue} />
         </Route>
 
-        
+
 
       </div>
     )

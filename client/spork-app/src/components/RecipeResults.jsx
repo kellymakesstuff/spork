@@ -9,13 +9,9 @@ function RecipeDetail(props) {
   const filteredData = props.data
     .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
   
-    // console.log(Object.values(props.data[1].ingredients[0]))
   
-  // console.log(filteredData)
+  console.log(filteredData)
 
-  // const filteredData = props.data.filter(recipe => {
-  //   return recipe.ingredients.toLowerCase().includes(props.inputValue.toLowerCase())
-  // })
 
   return (
     <div>

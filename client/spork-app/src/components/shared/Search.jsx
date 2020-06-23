@@ -2,10 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Search(props) {
-  // const filteredData = props.data.filter(recipe => {
-  //   return recipe.ingredients.toLowerCase().includes(props.inputValue.toLowerCase())
-  // })
-  // console.log(filteredData)
+
+ 
+
+  let results = []
+  props.data.forEach(recipe =>
+    Object.values(recipe.ingredients[0]).forEach(item => {
+      if (item.toLowerCase().includes(props.inputValue)) {
+        results.push(recipe)
+      }
+    })
+  )
+  console.log(results)
+
 
   return (
     <div>

@@ -56,10 +56,6 @@ export default class Carousel extends Component {
                     <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
                     {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" />)}
                     <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
-<<<<<<< HEAD
-=======
-
->>>>>>> 7de0cb89dc8f8ec7c2f656506cd9f006470f7a9d
                 </div>
             </div>
         )

@@ -117,3 +117,8 @@ a :hover {
   font-size:16px;
 }
 
+.ingredients-list{
+  margin-top: 1ex;
+  margin-bottom: 1ex;
+  color:red
+}

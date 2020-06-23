@@ -70,11 +70,13 @@ a :hover {
   width: auto;
 }
 
+
 .carousel-image {
   width: 236px;
   height: 212px;
   margin-right: 30px;
 }
+
 .sporkLogo{
   height: 226px;
   width: 432px;   
@@ -123,9 +125,6 @@ a :hover {
   color:red
 }
 
-
-
-
 /* Ingredident Sub List */
 
 .circleImg {
@@ -142,3 +141,4 @@ a :hover {
 .ingSubFull {
   text-align: center;
 }
+

@@ -40,24 +40,27 @@ export default class Carousel extends Component {
     })
   }
 
-  render() {
-    const index = this.state.currentImageIndex
 
-    let firstImages = this.props.data && this.props.data.slice(index, index + 5)
-    if (firstImages && firstImages.length < 5) {
-      firstImages = firstImages.concat(this.props.data.slice(0, 5 - firstImages.length))
+    render() {
+        const index = this.state.currentImageIndex
+
+        let firstImages = this.props.data && this.props.data.slice(index, index + 4)
+        if (firstImages && firstImages.length < 4) {
+            firstImages = firstImages.concat(this.props.data.slice(0, 4 - firstImages.length))
+        }
+
+
+        return (
+            <div className="carousel-container">
+                <h2>{this.props.title}</h2>
+                <div className="carousel">
+                    <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
+                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" />)}
+                    <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
+
+                </div>
+            </div>
+        )
     }
 
-
-    return (
-      <div className="carousel-container">
-        <h2>Trending Recipes</h2>
-        <div className="carousel">
-          <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
-          {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" />)}
-          <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
-        </div>
-      </div>
-    )
-  }
 }

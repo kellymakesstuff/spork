@@ -109,7 +109,7 @@ export default class Home extends Component {
           <IngredientSubResults inputValue={this.state.inputValue} />
         </Route>
 
-        
+
 
       </div>
     )

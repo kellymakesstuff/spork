@@ -7,6 +7,7 @@ import Carousel from "./Carousel";
 import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
+import Footer from '../components/shared/Footer'
 
 export default class Home extends Component {
     constructor() {
@@ -151,7 +152,7 @@ export default class Home extends Component {
                 </Route>
 
 
-
+                <Footer />
             </div>
         )
     }

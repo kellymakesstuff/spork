@@ -151,3 +151,16 @@ a :hover {
 .main-form{
   text-align: center;
 }
+
+.headshot-image {
+  width: 50px;
+  height: auto;
+  padding-right: 10px;
+}
+
+.about-info {
+  display: flex;
+  flex-flow: row;
+  margin: 10px;
+  justify-content: baseline;
+}

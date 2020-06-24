@@ -1,28 +1,35 @@
 import React from 'react'
 import { Link, withRouter } from "react-router-dom"
 import BeautyStars from "beauty-stars"
+import CondensedHeader from './shared/CondensedHeader'
+
 
 
 function RecipeDetail(props) {
-  // console.log(props.data)
+  
 
-  const filteredData = props.data
-    .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
-  
-    // console.log(Object.values(props.data[1].ingredients[0]))
-  
+  // const filteredData = props.data
+  //   .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
+
+  let filteredData = []
+  props.data.forEach(recipe =>
+    Object.values(recipe.ingredients[0]).forEach(item => {
+      if (item.toLowerCase().includes(props.inputValue)) {
+        filteredData.push(recipe)
+      }
+    })
+  )
+ 
   // console.log(filteredData)
 
-  // const filteredData = props.data.filter(recipe => {
-  //   return recipe.ingredients.toLowerCase().includes(props.inputValue.toLowerCase())
-  // })
 
   return (
     <div>
+      <Link to="/"> <CondensedHeader /> </Link>
       <div className="header">Recipe Results</div>
       {filteredData.map(recipes =>
         <div className="filter-detail" key={recipes.dishName}>
-          <Link to={`/search/recipes/${recipes._id}`}>
+          <Link to={`/search/${props.inputValue}/${recipes._id}`}>
           <img src={recipes.imgUrl} alt={recipes.dishName} width="250px" />
             <h3>{recipes.dishName}</h3>
             </Link>

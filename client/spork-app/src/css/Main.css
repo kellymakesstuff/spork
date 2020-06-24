@@ -33,6 +33,7 @@ a :hover {
     color: white;
     font-size: 64px;
     line-height: 85px;
+    text-align: center;
 }
 
 .search {
@@ -69,7 +70,6 @@ a :hover {
   height: 60px;
   width: auto;
 }
-
 
 .carousel-image {
   width: 236px;
@@ -122,4 +122,32 @@ a :hover {
   margin-top: 1ex;
   margin-bottom: 1ex;
   color:red
+}
+
+
+/* Ingredident Sub List */
+
+.circleImg {
+  height: 200px;
+  width: 200px;
+  border-radius: 28px;
+}
+
+.ingSubBox {
+  display:flex;
+  flex-flow: row wrap;
+}
+
+.ingSubFull {
+  text-align: center;
+}
+
+
+.clock-logo{
+  height:20px;
+  width:20px
+}
+
+.main-form{
+  text-align: center;
 }

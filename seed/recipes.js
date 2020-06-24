@@ -1,10 +1,23 @@
+
+
 const db = require('../db/connection')
 const Recipe = require('../models/recipe')
+const Comment = require('../models/Comments')
+
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
   await Recipe.deleteMany()
+  await Comment.deleteMany()
+  const comment1 = {
+    "name": "plankton",
+    "comment": "this krabby patty is great!",
+    "starRating": 5
+  }
+
+  const comment = await Comment.create(comment1)
+
   const recipes = [
     {
       "dishName": "Maple Salmon",
@@ -37,7 +50,9 @@ const main = async () => {
         "stepThree": "Preheat oven to 400 degrees F (200 degrees C).",
         "stepFour": "Place the baking dish in the preheated oven, and bake salmon uncovered 20 minutes, or until easily flaked with a fork."
       }],
-      "prepTime": "30 minutes"
+      "prepTime": "30 minutes",
+      "comments": comment._id
+
     },
     {
       "dishName": "Baked Cod",

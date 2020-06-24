@@ -1,6 +1,7 @@
 import React from 'react'
 import BeautyStars from "beauty-stars"
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
+import clock from "../images/clock.png"
 
 function RecipeDetail(props) {
   // console.log(props.data)
@@ -15,11 +16,13 @@ function RecipeDetail(props) {
       <div className="header">Recipe Details</div>
       {filteredRecipe && <div>
         <h2>{filteredRecipe.dishName}</h2>
-        <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} width="150px" />
+        <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} width="250px" />
         <BeautyStars value={filteredRecipe.starRating} size="20px"/>
-        <div className="preptime">{filteredRecipe.prepTime}</div>
+        <div className="preptime"><img src={clock} alt="clock" className="clock-logo"/>
+          {filteredRecipe.prepTime}</div>
         
         <div className="ingredients-list">
+          <div className="ingredients">Ingredients</div>
           {filteredRecipe.ingredients.map((recipe) =>
             <div key={recipe._id}>
               <div>{recipe.oneAmount} {recipe.oneUnit} {recipe.oneName}</div>
@@ -38,6 +41,7 @@ function RecipeDetail(props) {
         <div>
           {filteredRecipe.instructions.map((instruct) =>
             <div key={instruct._id}>
+              <div className="instruct">Instructions</div>
               <div> 1: {instruct.stepOne} </div>
               <div> 2: {instruct.stepTwo} </div>
               <div> 3: {instruct.stepThree} </div>

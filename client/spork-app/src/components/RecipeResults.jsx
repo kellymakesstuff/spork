@@ -3,14 +3,23 @@ import { Link, withRouter } from "react-router-dom"
 import BeautyStars from "beauty-stars"
 
 
-function RecipeDetail(props) {
-  // console.log(props.data)
 
-  const filteredData = props.data
-    .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
+function RecipeDetail(props) {
   
-  
-  console.log(filteredData)
+
+  // const filteredData = props.data
+  //   .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
+
+  let filteredData = []
+  props.data.forEach(recipe =>
+    Object.values(recipe.ingredients[0]).forEach(item => {
+      if (item.toLowerCase().includes(props.inputValue)) {
+        filteredData.push(recipe)
+      }
+    })
+  )
+ 
+  // console.log(filteredData)
 
 
   return (

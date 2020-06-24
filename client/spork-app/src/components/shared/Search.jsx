@@ -17,8 +17,8 @@ function Search(props) {
 
 
   return (
-    <div>
-      <form>
+    <div className="main-form">
+      <form className="form">
         <input
           type="text"
           value={props.inputValue}

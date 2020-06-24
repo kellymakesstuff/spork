@@ -7,14 +7,13 @@ import CondensedHeader from './shared/CondensedHeader'
 
 function RecipeDetail(props) {
   
-
   // const filteredData = props.data
   //   .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
 
   let filteredData = []
   props.data.forEach(recipe =>
     Object.values(recipe.ingredients[0]).forEach(item => {
-      if (item.toLowerCase().includes(props.inputValue)) {
+      if (item.toLowerCase().includes(props.match.params.inputValue.toLowerCase())) {
         filteredData.push(recipe)
       }
     })
@@ -32,7 +31,8 @@ function RecipeDetail(props) {
           <Link to={`/search/${props.inputValue}/${recipes._id}`}>
           <img src={recipes.imgUrl} alt={recipes.dishName} width="250px" />
             <h3>{recipes.dishName}</h3>
-            </Link>
+          </Link>
+          <div className="brief-description">{recipes.briefDescription}</div>
           <div className="star">{recipes.starRating}.0</div>
           <BeautyStars value={recipes.starRating} size="15px" />
           <p>{recipes.prepTime}</p>

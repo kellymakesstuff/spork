@@ -26,7 +26,7 @@ export default function IngredientSubResults(props) {
   const [newIngred, updatenewIngred] = useState([])
   // const [ingredImgName, updateIngredImgName] = useState([])
   let lastWordImg = []
-
+  let [lastWord, updateLastWord] = useState([]);
 
   let renameImg = (newIngred) => {
     for (let i = 0; i < newIngred.length; i++) {
@@ -35,7 +35,7 @@ export default function IngredientSubResults(props) {
       lastWordImg.push(lastWord)
       console.log(lastWordImg, "lastWordImg")
     }
-
+    updateLastWord(lastWordImg)
   }
 
 
@@ -59,7 +59,7 @@ export default function IngredientSubResults(props) {
     updateSubstitute(data.data)
     renameImg(data.data.substitutes)
     updatenewIngred(data.data.substitutes)
-    console.log(newIngred, "line 29")
+    console.log(newIngred, "line 62")
 
 
 
@@ -74,9 +74,8 @@ export default function IngredientSubResults(props) {
       <img src={downArrow} className="downArrow" alt="down arrow" />
 
       <div className="ingSubBox">
-        {lastWordImg.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
+        {lastWord.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
         {newIngred.map(ing => <p>{ing}</p>)}
-
 
       </div>
     </div>

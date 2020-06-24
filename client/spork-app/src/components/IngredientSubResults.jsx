@@ -1,15 +1,11 @@
-// As of right now, this is roughly created since I pretty much just copied and edited what Zain had in RecipeResults.jsx
-// Input API call as normal
-// Set "ingredient" (e.target.value) to searched value
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Search from "./shared/Search";
 import axios from "axios";
-import '../css/Main.css'
-import DummyComponent from "../components/DummyComponent"
+import "../css/Main.css";
+import DummyComponent from "../components/DummyComponent";
 import CondensedHeader from "./shared/CondensedHeader";
-import downArrow from '../images/down-arrow.png'
+import downArrow from "../images/down-arrow.png";
 
 export default function IngredientSubResults(props) {
   console.log(props);
@@ -23,12 +19,9 @@ export default function IngredientSubResults(props) {
   // }
 
   const [substitute, updateSubstitute] = useState([]);
-  const [newIngred, updatenewIngred] = useState([])
+  const [newIngred, updatenewIngred] = useState([]);
   // const [ingredImgName, updateIngredImgName] = useState([])
-  let lastWordImg = []
-
-
-
+  let lastWordImg = [];
 
   useEffect(async () => {
     let data = await axios(
@@ -36,38 +29,50 @@ export default function IngredientSubResults(props) {
     );
 
     console.log(data.data, "line 25");
-    updateSubstitute(data.data)
-    updatenewIngred(data.data.substitutes)
-    console.log(newIngred, "line 29")
-
+    updateSubstitute(data.data);
+    updatenewIngred(data.data.substitutes);
+    console.log(newIngred, "line 29");
 
     let renameImg = (newIngred) => {
       for (let i = 0; i < newIngred.length; i++) {
         let lastWord = newIngred[i].split(" ").pop();
-        console.log(lastWord, "last word")
-        lastWordImg.push(lastWord)
-        console.log(lastWordImg, "lastWordImg")
+        console.log(lastWord, "last word");
+        lastWordImg.push(lastWord);
+        console.log(lastWordImg, "lastWordImg");
       }
+    };
 
-    }
-
-    renameImg(newIngred)
+    renameImg(newIngred);
   }, []);
 
-  return <>
-    <CondensedHeader />
-    <div className="ingSubFull">
-      <div className="header">Substitute Results</div>
-      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`} alt="chosen ingredient" />
-      <h2>{substitute.ingredient}</h2>
-      <img src={downArrow} className="downArrow" alt="down arrow" />
+  return (
+    <>
+      <CondensedHeader />
+      <div className="ingSubFull">
+        <div className="header">Substitute Results</div>
+        <img
+          className="circleImg"
+          src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`}
+          alt="chosen ingredient"
+        />
+        <h2>{substitute.ingredient}</h2>
+        <img src={downArrow} className="downArrow" alt="down arrow" />
 
-      <div className="ingSubBox">
-        {newIngred.map(ing => <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" /><p>{ing}</p></div>)}
+        <div className="ingSubBox">
+          {newIngred.map((ing) => (
+            <div>
+              <img
+                className="circleImg"
+                src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`}
+                alt="chosen ingredient"
+              />
+              <p>{ing}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-
-  </>
+    </>
+  );
 
   //   <div>
   //     <div className="header">Substitutions</div>

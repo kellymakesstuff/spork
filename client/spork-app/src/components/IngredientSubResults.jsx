@@ -28,7 +28,27 @@ export default function IngredientSubResults(props) {
   let lastWordImg = []
 
 
+  let renameImg = (newIngred) => {
+    for (let i = 0; i < newIngred.length; i++) {
+      let lastWord = newIngred[i].split(" ").pop();
+      console.log(lastWord, "last word")
+      lastWordImg.push(lastWord)
+      console.log(lastWordImg, "lastWordImg")
+    }
 
+  }
+
+
+  // let imgPopulate = () => {
+  //   for (let i = 0; i < newIngred.length; i++) {
+  //     // let newItem = newIngred[i]
+  //     // let newImg = lastWordImg[i]
+  //     // console.log("newItem", newItem)
+  //     console.log("newImg", newImg[i])
+  //     // return <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${newImg}.jpg`} alt="chosen ingredient" /><p>{newItem}</p></div>
+  //   }
+
+  // }
 
   useEffect(async () => {
     let data = await axios(
@@ -37,21 +57,12 @@ export default function IngredientSubResults(props) {
 
     console.log(data.data, "line 25");
     updateSubstitute(data.data)
+    renameImg(data.data.substitutes)
     updatenewIngred(data.data.substitutes)
     console.log(newIngred, "line 29")
 
 
-    let renameImg = (newIngred) => {
-      for (let i = 0; i < newIngred.length; i++) {
-        let lastWord = newIngred[i].split(" ").pop();
-        console.log(lastWord, "last word")
-        lastWordImg.push(lastWord)
-        console.log(lastWordImg, "lastWordImg")
-      }
 
-    }
-
-    renameImg(newIngred)
   }, []);
 
   return <>
@@ -63,7 +74,10 @@ export default function IngredientSubResults(props) {
       <img src={downArrow} className="downArrow" alt="down arrow" />
 
       <div className="ingSubBox">
-        {newIngred.map(ing => <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" /><p>{ing}</p></div>)}
+        {lastWordImg.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
+        {newIngred.map(ing => <p>{ing}</p>)}
+
+
       </div>
     </div>
 

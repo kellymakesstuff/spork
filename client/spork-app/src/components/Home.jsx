@@ -72,14 +72,15 @@ class Home extends Component {
   }
 
   onKeyPress = (e) => {
-    console.log(e)
-    let key = e.charCode || e.keyCode || 0
-    console.log(key)
-    if (key === 13) {
+    // console.log(e)
+    e.preventDefault()
+    // let key = e.charCode || e.keyCode || 0
+    // // console.log(key)
+    // if (key === 13) {
       // console.log(key)
-      this.props.history.push(`/search/${e.target.value}`)
+      this.props.history.push(`/search/${this.state.inputValue}`)
     // this.setState({inputValue:e.target.value})
-    }
+    // }
   }
 
 

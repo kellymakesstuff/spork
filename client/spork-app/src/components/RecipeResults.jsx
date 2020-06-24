@@ -7,14 +7,13 @@ import CondensedHeader from './shared/CondensedHeader'
 
 function RecipeDetail(props) {
   
-
   // const filteredData = props.data
   //   .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
 
   let filteredData = []
   props.data.forEach(recipe =>
     Object.values(recipe.ingredients[0]).forEach(item => {
-      if (item.toLowerCase().includes(props.inputValue)) {
+      if (item.toLowerCase().includes(props.match.params.inputValue.toLowerCase())) {
         filteredData.push(recipe)
       }
     })

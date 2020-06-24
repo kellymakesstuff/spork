@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { getRecipes } from "../services/recipes";
 import Search from "../components/shared/Search";
 import RecipeResults from "../components/RecipeResults";
@@ -8,7 +8,7 @@ import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
 
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = {
@@ -71,6 +71,18 @@ randomizeData = async () => {
     })
   }
 
+
+  onKeyPress = (e) => {
+    console.log(e)
+    let key = e.charCode || e.keyCode || 0
+    console.log(key)
+    if (key === 13) {
+      // console.log(key)
+      this.props.history.push(`/search/${e.target.value}`)
+    // this.setState({inputValue:e.target.value})
+    }
+  }
+
   carouselDataFilter = async () => {
     const response = await getRecipes()
     let starData = []
@@ -120,6 +132,7 @@ randomizeData = async () => {
             data={this.state.recipes}
             inputValue={this.state.inputValue}
             onChange={this.handleChange}
+            onKeyPress={this.onKeyPress}
           />
           <Carousel title="Top rated recipes" data={this.state.fiveStarRecipes} />
           <Carousel title="Veggie lovers recipes" data={this.state.vegetarianRecipes} />
@@ -152,3 +165,5 @@ randomizeData = async () => {
     )
   }
 }
+
+export default withRouter (Home)

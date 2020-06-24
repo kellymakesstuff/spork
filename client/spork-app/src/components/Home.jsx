@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { getRecipes } from "../services/recipes";
 import Search from "../components/shared/Search";
 import RecipeResults from "../components/RecipeResults";
@@ -8,7 +8,7 @@ import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
 
-export default class Home extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,7 +17,7 @@ export default class Home extends Component {
       fiveStarRecipes: [],
       vegetarianRecipes: [],
       randomizedRecipes: [],
-      meatRecipes:[]
+      meatRecipes: []
     }
   }
   async componentDidMount() {
@@ -51,7 +51,7 @@ export default class Home extends Component {
     })
   }
 
-randomizeData = async () => {
+  randomizeData = async () => {
     const response = await getRecipes()
     let randomized = []
     while (randomized.length < 10) {
@@ -70,6 +70,20 @@ randomizeData = async () => {
       inputValue: e.target.value,
     })
   }
+
+  onKeyPress = (e) => {
+    // console.log(e)
+    e.preventDefault()
+    // let key = e.charCode || e.keyCode || 0
+    // // console.log(key)
+    // if (key === 13) {
+      // console.log(key)
+      this.props.history.push(`/search/${this.state.inputValue}`)
+    // this.setState({inputValue:e.target.value})
+    // }
+  }
+
+
 
   carouselDataFilter = async () => {
     const response = await getRecipes()
@@ -120,12 +134,13 @@ randomizeData = async () => {
             data={this.state.recipes}
             inputValue={this.state.inputValue}
             onChange={this.handleChange}
+            onKeyPress={this.onKeyPress}
           />
-          <Carousel title="Top rated recipes" data={this.state.fiveStarRecipes} />
-          <Carousel title="Veggie lovers recipes" data={this.state.vegetarianRecipes} />
-          <Carousel title="Meat lovers recipes" data={this.state.meatRecipes} />
-          <Carousel title="Random recipes" data={this.state.randomizedRecipes} />
-          
+          <Carousel recipeDetails={this.state.recipes} title="Top rated recipes" data={this.state.fiveStarRecipes} />
+          <Carousel recipeDetails={this.state.recipes} title="Veggie lovers recipes" data={this.state.vegetarianRecipes} />
+          <Carousel recipeDetails={this.state.recipes} title="Meat lovers recipes" data={this.state.meatRecipes} />
+          <Carousel recipeDetails={this.state.recipes} title="Random recipes" data={this.state.randomizedRecipes} />
+
         </Route>
 
         <Route exact path="/search/:inputValue">
@@ -146,9 +161,15 @@ randomizeData = async () => {
           <IngredientSubResults inputValue={this.state.inputValue} />
         </Route>
 
+        <Route path="/recipesDetail/:id">
+          <RecipeDetail data={this.state.recipes} />
+        </Route>
+
 
 
       </div>
     )
   }
 }
+
+export default withRouter(Home)

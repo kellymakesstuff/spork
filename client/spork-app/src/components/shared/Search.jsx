@@ -17,8 +17,8 @@ function Search(props) {
 
 
   return (
-    <div>
-      <form>
+    <div className="main-form">
+      <form className="form">
         <input
           type="text"
           value={props.inputValue}
@@ -28,7 +28,7 @@ function Search(props) {
         />
       </form>
       <div className="buttons">
-        <Link to="/search/recipes">
+        <Link to={`/search/${props.inputValue}`}>
           <button className="recipe-button">Recipe</button>
         </Link>
         <Link to="/substitute">

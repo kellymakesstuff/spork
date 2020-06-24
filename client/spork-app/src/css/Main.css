@@ -33,6 +33,7 @@ a :hover {
     color: white;
     font-size: 64px;
     line-height: 85px;
+    text-align: center;
 }
 
 .search {
@@ -70,13 +71,11 @@ a :hover {
   width: auto;
 }
 
-
 .carousel-image {
   width: 236px;
   height: 212px;
   margin-right: 30px;
 }
-
 .sporkLogo{
   height: 226px;
   width: 432px;   
@@ -144,3 +143,11 @@ a :hover {
 }
 
 
+.clock-logo{
+  height:20px;
+  width:20px
+}
+
+.main-form{
+  text-align: center;
+}

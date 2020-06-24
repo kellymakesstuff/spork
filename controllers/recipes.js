@@ -66,8 +66,12 @@ const deleteRecipe = async (req, res) => {
 
 const createComment = async (req, res) => {
   try {
+    const { id } = req.params
     const comment = await new Comment(req.body);
     await comment.save();
+    const recipe = await Recipe.findById(id);
+    recipe.comments.push(comment)
+    await recipe.save();
     res.status(201).json(comment);
   } catch (error) {
     console.log(error);

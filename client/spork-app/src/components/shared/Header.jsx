@@ -11,7 +11,7 @@ export default class Header extends Component {
                 
                 <p className="headerText">Find a recipe</p>
                 <p className="headerText2"> or </p>
-                <p className="headerText3">Missing and ingredient?</p> 
+                <p className="headerText3">Missing an ingredient?</p> 
                 <p className="headerText3">Find a substitute</p> 
                 
                 

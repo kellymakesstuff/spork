@@ -33,6 +33,7 @@ a :hover {
     color: white;
     font-size: 64px;
     line-height: 85px;
+    text-align: center;
 }
 
 .search {
@@ -142,3 +143,11 @@ a :hover {
 }
 
 
+.clock-logo{
+  height:20px;
+  width:20px
+}
+
+.main-form{
+  text-align: center;
+}

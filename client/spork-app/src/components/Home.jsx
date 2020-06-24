@@ -128,7 +128,7 @@ randomizeData = async () => {
           
         </Route>
 
-        <Route exact path="/search/recipes">
+        <Route exact path="/search/:inputValue">
           <RecipeResults
             data={this.state.recipes}
             inputValue={this.state.inputValue}
@@ -136,7 +136,7 @@ randomizeData = async () => {
           />
         </Route>
 
-        <Route path="/search/recipes/:id">
+        <Route path="/search/:inputValue/:id">
           <RecipeDetail
             data={this.state.recipes}
           />

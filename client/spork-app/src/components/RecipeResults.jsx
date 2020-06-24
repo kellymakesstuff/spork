@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from "react-router-dom"
 import BeautyStars from "beauty-stars"
+import CondensedHeader from './shared/CondensedHeader'
 
 
 
@@ -24,10 +25,11 @@ function RecipeDetail(props) {
 
   return (
     <div>
+      <Link to="/"> <CondensedHeader /> </Link>
       <div className="header">Recipe Results</div>
       {filteredData.map(recipes =>
         <div className="filter-detail" key={recipes.dishName}>
-          <Link to={`/search/recipes/${recipes._id}`}>
+          <Link to={`/search/${props.inputValue}/${recipes._id}`}>
           <img src={recipes.imgUrl} alt={recipes.dishName} width="250px" />
             <h3>{recipes.dishName}</h3>
             </Link>

@@ -1,7 +1,8 @@
 import React from 'react'
 import BeautyStars from "beauty-stars"
-import { withRouter } from "react-router-dom"
+import { Link, withRouter } from "react-router-dom"
 import clock from "../images/clock.png"
+import CondensedHeader from './shared/CondensedHeader'
 
 function RecipeDetail(props) {
   // console.log(props.data)
@@ -13,6 +14,7 @@ function RecipeDetail(props) {
 
   return (
     <div>
+      <Link to="/"><CondensedHeader /></Link>
       <div className="header">Recipe Details</div>
       {filteredRecipe && <div>
         <h2>{filteredRecipe.dishName}</h2>

@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import '../css/Main.css'
 import arrowRight from '../images/right-arrow.png'
 import arrowLeft from '../images/left-arrow.png'
+import { Link, Route } from "react-router-dom"
+import RecipeDetail from "./RecipeDetail"
+import { withRouter } from "react-router-dom"
 
 export default class Carousel extends Component {
   constructor(props) {
@@ -48,19 +51,21 @@ export default class Carousel extends Component {
         if (firstImages && firstImages.length < 4) {
             firstImages = firstImages.concat(this.props.data.slice(0, 4 - firstImages.length))
         }
-
+        
+        console.log(this.props.recipeDetails)
 
         return (
             <div className="carousel-container">
                 <h2>{this.props.title}</h2>
                 <div className="carousel">
                     <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
-                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" />)}
+                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <><Link to={`/recipesDetail/${image._id}`} > <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" /> </Link></>)}
                     <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
-
                 </div>
             </div>
         )
     }
 
 }
+
+

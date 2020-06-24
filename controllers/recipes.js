@@ -1,10 +1,11 @@
 const Recipe = require("../models/recipe");
+const Comment = require("../models/Comments")
 const db = require("../db/connection");
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 const getRecipes = async (req, res) => {
   try {
-    const recipes = await Recipe.find();
+    const recipes = await Recipe.find().populate("comments");
     res.json(recipes);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -13,7 +14,7 @@ const getRecipes = async (req, res) => {
 const getRecipe = async (req, res) => {
   try {
     const { id } = req.params;
-    const recipe = await Recipe.findById(id);
+    const recipe = await Recipe.findById(id).populate("comments");
     if (recipe) {
       return res.json(recipe);
     }

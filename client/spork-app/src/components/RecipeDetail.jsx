@@ -29,6 +29,7 @@ function RecipeDetail(props) {
         <div className="recipe-detail-information">
           <div className="recipe-description-text">
             {filteredRecipe.briefDescription}
+            
           </div>
           <div className="rating-timer-container">
           <BeautyStars value={filteredRecipe.starRating} size="20px"/>
@@ -38,7 +39,8 @@ function RecipeDetail(props) {
               {filteredRecipe.prepTime}
             </div>
             </div>
-        <div className="ingredients-list">
+        <div className="ingredients-list-container">
+          
           <b>Ingredients</b>
           {filteredRecipe.ingredients.map((recipe) =>
             <div key={recipe._id}>
@@ -54,6 +56,7 @@ function RecipeDetail(props) {
           )}
           </div>
           <div>
+          <div className="line-break"></div>
           {filteredRecipe.instructions.map((instruct) =>
             <div key={instruct._id}>
               <div className="instruct"><b>Instructions</b></div>

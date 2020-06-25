@@ -15,8 +15,29 @@ a:hover {
         display: block;
     }
 }
+.line-break {
+    background-color: black;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 15px;
+}
 
-.ingredients-list {
+.line-break-vertical {
+    background-color: black;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 15px;
+    transform: rotate(90);
+}
+
+.rating-timer-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ingredients-list-container {
     margin-top: 1ex;
     margin-bottom: 1ex;
     color: black;
@@ -24,10 +45,11 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-self: center;
+    width: 44%
 }
 
 @media screen and (max-width: 768px) {
-    .ingredients-list {
+    .ingredients-list-container {
         display: flex;
         flex-direction: column;
         width: 100%;

@@ -10,6 +10,8 @@ import Header from "../components/shared/Header"
 import Footer from '../components/shared/Footer'
 import About from "../components/About"
 import CondensedHeader from "../components/shared/CondensedHeader"
+import Reviews from "./Reviews"
+
 
 class Home extends Component {
   constructor() {
@@ -129,10 +131,17 @@ class Home extends Component {
           <RecipeDetail data={this.state.recipes} />
         </Route>
 
+
         <Route exact path="/about">
           <CondensedHeader />
           <About />
         </Route>
+
+        <Route>
+          <Reviews />
+        </Route>
+
+
 
       </div>
     )

@@ -3,6 +3,8 @@ import BeautyStars from "beauty-stars"
 import { Link, withRouter } from "react-router-dom"
 import clock from "../images/clock.png"
 import CondensedHeader from './shared/CondensedHeader'
+import '../css/RecipeDetails.css'
+
 
 function RecipeDetail(props) {
   // console.log(props.data)
@@ -10,19 +12,30 @@ function RecipeDetail(props) {
   // console.log(recipeDetail)
 
   const filteredRecipe = recipeDetail.find((recipe) => recipe._id === props.match.params.id)
-  // console.log(filteredRecipe)
+  // console.log(filteredRecipe._id)
 
   return (
     <div>
       <Link to="/"><CondensedHeader /></Link>
       <div className="header">Recipe Details</div>
-      {filteredRecipe && <div>
-        <h2>{filteredRecipe.dishName}</h2>
-        <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} width="250px" />
-        <BeautyStars value={filteredRecipe.starRating} size="20px"/>
-        <div className="preptime"><img src={clock} alt="clock" className="clock-logo"/>
-          {filteredRecipe.prepTime}</div>
-        
+
+      <div className="recipe-detail-master-container">
+      {filteredRecipe && 
+        <>
+            <div className="recipe-details-name-image">
+              <h2 className="recipe-detail-name">{filteredRecipe.dishName}</h2>
+              <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} className="recipe-detail-image" />
+            </div>
+        <div className="recipe-detail-information">
+          <div className="recipe-description-text">
+            {filteredRecipe.briefDescription}
+          </div>
+          <BeautyStars value={filteredRecipe.starRating} size="20px"/>
+            <div className="preptime">
+              <img src={clock} alt="clock" className="clock-logo"/>
+              {filteredRecipe.prepTime}
+            </div>
+
         <div className="ingredients-list">
           <div className="ingredients">Ingredients</div>
           {filteredRecipe.ingredients.map((recipe) =>
@@ -37,10 +50,8 @@ function RecipeDetail(props) {
               <div>{recipe.eightAmount} {recipe.eightUnit} {recipe.eightName}</div>
             </div>
           )}
-        </div>
-        
-
-        <div>
+          </div>
+          <div>
           {filteredRecipe.instructions.map((instruct) =>
             <div key={instruct._id}>
               <div className="instruct">Instructions</div>
@@ -50,10 +61,11 @@ function RecipeDetail(props) {
               <div> 4: {instruct.stepFour} </div>
           </div>
           )}
+          </div>
         </div>
-
-      </div>
+      </>
       }
+      </div>
     </div>
   )
 }

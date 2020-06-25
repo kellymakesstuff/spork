@@ -75,7 +75,7 @@ a :hover {
 
 .carousel-title-container {
     display: flex;
-    width: 40%;
+    width: 50%;
     justify-content: center;
     margin-top: 30px;
 }
@@ -148,11 +148,7 @@ a :hover {
     font-size: 16px;
 }
 
-.ingredients-list {
-    margin-top: 1ex;
-    margin-bottom: 1ex;
-    color: red
-}
+
 
 
 /* Ingredident Sub List */
@@ -195,9 +191,12 @@ a :hover {
 
 .recipe-results-container {
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
     justify-content: space-evenly;
 }
+
 
 .footer {
   display: flex;
@@ -209,4 +208,14 @@ a :hover {
   color: white;
   font-size: 20px;
   margin: 20px 0px 0px 0px;
+
+.filter-detail {
+    width: 237px;
+}
+
+.recipe-results-master-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
 }

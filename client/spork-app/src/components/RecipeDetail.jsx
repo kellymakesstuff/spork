@@ -22,6 +22,7 @@ function RecipeDetail(props) {
       <div className="recipe-detail-master-container">
       {filteredRecipe && 
         <>
+        <Link to={`/comments/${filteredRecipe._id}`}>Review this recipe</Link>
             <div className="recipe-details-name-image">
               <h2 className="recipe-detail-name">{filteredRecipe.dishName}</h2>
               <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} className="recipe-detail-image" />

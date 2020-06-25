@@ -45,7 +45,7 @@ class Reviews extends Component {
     }
 
     handleSubmit = async (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         let { id } = this.props.match.params
         const created = await createComment(id, this.state.review)
         this.setState({
@@ -53,10 +53,11 @@ class Reviews extends Component {
         })
 
     }
-
+    
 
     render() {
-        console.log(this.props.commentData)
+      const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
+      // console.log(filteredRecipe)
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -64,16 +65,19 @@ class Reviews extends Component {
                     <input type="text" placeholder="Comment" onChange={this.handleCommentChange} />
                     <input type="number" placeholder="Star rating" onChange={this.handleRatingChange} />
 
-                    {/* <BeautyStars
-                        value={this.state.starRating}
-                        onClick={ value => this.setState({ value })}
-                    /> */}
-
+                    
                     <button>Submit</button>
-                </form>
-                <h3></h3>
-                    <p></p>
-                    <h2></h2>
+            </form>
+            {/* {filteredRecipe &&
+              <h3>{filteredRecipe.comments[0].comment}</h3>} */}
+            {filteredRecipe && filteredRecipe.comments.map(review => 
+              <div>
+              <h1>{review.comment}</h1>
+                <h1>{review.name}</h1>
+                <BeautyStars value={review.starRating}/>
+                </div>
+              )}
+    
             </div>
         )
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { createComment } from "../services/recipes"
 import BeautyStars from "beauty-stars"
-import { withRouter } from "react-router-dom"
+import { withRouter, Link } from "react-router-dom"
+import CondensedHeader from './shared/CondensedHeader'
 
 class Reviews extends Component {
     constructor(props) {
@@ -59,7 +60,11 @@ class Reviews extends Component {
       const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
       // console.log(filteredRecipe)
         return (
-            <div>
+          <div>
+            {filteredRecipe &&
+              <Link to={`/search/${this.props.inputValue}/${filteredRecipe._id}`}><CondensedHeader /></Link>
+            }
+            <div className="header">Reviews</div>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="Name" onChange={this.handleNameChange} />
                     <input type="text" placeholder="Comment" onChange={this.handleCommentChange} />
@@ -68,13 +73,18 @@ class Reviews extends Component {
                     
                     <button>Submit</button>
             </form>
-            {/* {filteredRecipe &&
-              <h3>{filteredRecipe.comments[0].comment}</h3>} */}
+            <h1>Reviews for:</h1>
+            {filteredRecipe &&
+              <div>{filteredRecipe.dishName}</div>}
+            
+            
+
+
             {filteredRecipe && filteredRecipe.comments.map(review => 
               <div>
-              <h1>{review.comment}</h1>
-                <h1>{review.name}</h1>
-                <BeautyStars value={review.starRating}/>
+                <h3>{review.name}</h3>
+                <BeautyStars value={review.starRating} size="10px" />
+                <h3>{review.comment}</h3>
                 </div>
               )}
     

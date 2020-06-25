@@ -39,7 +39,8 @@ function RecipeDetail(props) {
               {filteredRecipe.prepTime}
             </div>
             </div>
-        <div className="ingredients-list">
+        <div className="ingredients-list-container">
+          
           <b>Ingredients</b>
           {filteredRecipe.ingredients.map((recipe) =>
             <div key={recipe._id}>

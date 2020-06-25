@@ -6,10 +6,8 @@ import "../css/Main.css";
 import DummyComponent from "../components/DummyComponent";
 import CondensedHeader from "./shared/CondensedHeader";
 import downArrow from "../images/down-arrow.png";
-
 export default function IngredientSubResults(props) {
   console.log(props);
-
   // function SubResults() {
   //   const filteredData = props.data.filter((ingredient) => {
   //     return ingredient.substitution
@@ -17,27 +15,20 @@ export default function IngredientSubResults(props) {
   //       .includes(props.inputValue.toLowerCase());
   //   });
   // }
-
   const [substitute, updateSubstitute] = useState([]);
   const [newIngred, updatenewIngred] = useState([]);
   // const [ingredImgName, updateIngredImgName] = useState([])
-<<<<<<< HEAD
   let lastWordImg = [];
-=======
-  let lastWordImg = []
-
-
+  let [lastWord, updateLastWord] = useState([]);
   let renameImg = (newIngred) => {
     for (let i = 0; i < newIngred.length; i++) {
       let lastWord = newIngred[i].split(" ").pop();
-      console.log(lastWord, "last word")
-      lastWordImg.push(lastWord)
-      console.log(lastWordImg, "lastWordImg")
+      console.log(lastWord, "last word");
+      lastWordImg.push(lastWord);
+      console.log(lastWordImg, "lastWordImg");
     }
-
-  }
-
-
+    updateLastWord(lastWordImg);
+  };
   // let imgPopulate = () => {
   //   for (let i = 0; i < newIngred.length; i++) {
   //     // let newItem = newIngred[i]
@@ -46,33 +37,17 @@ export default function IngredientSubResults(props) {
   //     console.log("newImg", newImg[i])
   //     // return <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${newImg}.jpg`} alt="chosen ingredient" /><p>{newItem}</p></div>
   //   }
-
   // }
->>>>>>> 07359daf9336581a5dcdcecc18652a2f167457dd
-
   useEffect(async () => {
     let data = await axios(
       `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=8aa87f0f7bfb4adc8f4270c1c8cc9042&ingredientName=${props.inputValue}`
     );
-
     console.log(data.data, "line 25");
-<<<<<<< HEAD
     updateSubstitute(data.data);
+    renameImg(data.data.substitutes);
     updatenewIngred(data.data.substitutes);
-    console.log(newIngred, "line 29");
-
-    let renameImg = (newIngred) => {
-      for (let i = 0; i < newIngred.length; i++) {
-        let lastWord = newIngred[i].split(" ").pop();
-        console.log(lastWord, "last word");
-        lastWordImg.push(lastWord);
-        console.log(lastWordImg, "lastWordImg");
-      }
-    };
-
-    renameImg(newIngred);
+    console.log(newIngred, "line 62");
   }, []);
-
   return (
     <>
       <CondensedHeader />
@@ -85,47 +60,21 @@ export default function IngredientSubResults(props) {
         />
         <h2>{substitute.ingredient}</h2>
         <img src={downArrow} className="downArrow" alt="down arrow" />
-
         <div className="ingSubBox">
+          {lastWord.map((ing) => (
+            <img
+              className="circleImg"
+              src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`}
+              alt="chosen ingredient"
+            />
+          ))}
           {newIngred.map((ing) => (
-            <div>
-              <img
-                className="circleImg"
-                src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`}
-                alt="chosen ingredient"
-              />
-              <p>{ing}</p>
-            </div>
+            <p>{ing}</p>
           ))}
         </div>
-=======
-    updateSubstitute(data.data)
-    renameImg(data.data.substitutes)
-    updatenewIngred(data.data.substitutes)
-    console.log(newIngred, "line 29")
-
-
-
-  }, []);
-
-  return <>
-    <CondensedHeader />
-    <div className="ingSubFull">
-      <div className="header">Substitute Results</div>
-      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`} alt="chosen ingredient" />
-      <h2>{substitute.ingredient}</h2>
-      <img src={downArrow} className="downArrow" alt="down arrow" />
-
-      <div className="ingSubBox">
-        {lastWordImg.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
-        {newIngred.map(ing => <p>{ing}</p>)}
-
-
->>>>>>> 07359daf9336581a5dcdcecc18652a2f167457dd
       </div>
     </>
   );
-
   //   <div>
   //     <div className="header">Substitutions</div>
   //     {filteredData.map((substitute) => (
@@ -143,7 +92,6 @@ export default function IngredientSubResults(props) {
   //   </div>
   // );
 }
-
 // return (
 //   <div>
 //     <div className="header">Substitutions</div>
@@ -162,7 +110,6 @@ export default function IngredientSubResults(props) {
 //   </div>
 // );
 // }
-
 // export const getSubstitution = async () => {
 //   try {
 //     const response = await api.get(

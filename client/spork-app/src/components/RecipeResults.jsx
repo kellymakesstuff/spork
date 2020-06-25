@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, withRouter } from "react-router-dom"
 import BeautyStars from "beauty-stars"
 import CondensedHeader from './shared/CondensedHeader'
+import '../css/Main.css'
 
 
 
@@ -26,10 +27,11 @@ function RecipeDetail(props) {
     <div>
       <Link to="/"> <CondensedHeader /> </Link>
       <div className="header">Recipe Results</div>
+      <div className="recipe-results-container">
       {filteredData.map(recipes =>
         <div className="filter-detail" key={recipes.dishName}>
           <Link to={`/search/${props.inputValue}/${recipes._id}`}>
-          <img src={recipes.imgUrl} alt={recipes.dishName} width="250px" />
+          <img src={recipes.imgUrl} alt={recipes.dishName} className="recipe-results-image" />
             <h3>{recipes.dishName}</h3>
           </Link>
           <div className="brief-description">{recipes.briefDescription}</div>
@@ -38,7 +40,7 @@ function RecipeDetail(props) {
           <p>{recipes.prepTime}</p>
         </div>
       )}
-
+</div>
     </div>
   )
 }

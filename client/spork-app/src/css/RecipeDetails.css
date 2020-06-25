@@ -1,0 +1,36 @@
+.recipe-detail-image {
+    width: 450px;
+    height: 450px;
+    display: inline-flex;
+
+}
+
+.ingredients-list {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+    color: black;
+}
+
+.recipe-detail-master-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.recipe-detail-info-container {
+    width: 300px;
+}
+
+.recipe-detail-information {
+    width: 550px;
+    padding: 30px;
+}
+.recipe-description-text{
+    padding-bottom: 10px;
+}
+
+.preptime {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}

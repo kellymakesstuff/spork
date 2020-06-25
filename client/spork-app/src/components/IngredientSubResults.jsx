@@ -26,20 +26,22 @@ export default function IngredientSubResults(props) {
     updateLastWord(lastWordImg);
   };
 
-  useEffect(async () => {
-    let data = await axios(
-      `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${API_KEY}&ingredientName=${props.inputValue}`
-    );
-
-    updateSubstitute(data.data);
-    console.log("data", data.data);
-    if (data.data.status === "failure") {
-      updatenewIngred(["Oops! No substitutes found."]);
-      updateLastWord([sporkLogo]);
-    } else {
-      updatenewIngred(data.data.substitutes);
-      renameImg(data.data.substitutes);
+  useEffect(() => {
+    async function apiCall() {
+      let data = await axios(
+        `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${API_KEY}&ingredientName=${props.inputValue.toLowerCase()}`
+      );
+      updateSubstitute(data.data);
+      console.log("data", data.data);
+      if (data.data.status === "failure") {
+        updatenewIngred(["Oops! No substitutes found."]);
+        updateLastWord([sporkLogo]);
+      } else {
+        updatenewIngred(data.data.substitutes);
+        renameImg(data.data.substitutes);
+      }
     }
+    apiCall();
   }, []);
 
   return (

@@ -2,24 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Search(props) {
-  // const filteredData = props.data.filter(recipe => {
-  //   return recipe.ingredients.toLowerCase().includes(props.inputValue.toLowerCase())
-  // })
-  // console.log(filteredData)
+
+ 
+
+  let results = []
+  props.data.forEach(recipe =>
+    Object.values(recipe.ingredients[0]).forEach(item => {
+      if (item.toLowerCase().includes(props.inputValue)) {
+        results.push(recipe)
+      }
+    })
+  )
+  console.log(results)
+
 
   return (
-    <div>
-      <form>
+    <div className="main-form">
+      <form className="form" onSubmit={props.onKeyPress}>
         <input
           type="text"
           value={props.inputValue}
           onChange={props.onChange}
           placeholder="Search"
           className="search"
+          // onKeyPress={props.onKeyPress}
         />
       </form>
       <div className="buttons">
-        <Link to="/search/recipes">
+        <Link to={`/search/${props.inputValue}`}>
           <button className="recipe-button">Recipe</button>
         </Link>
         <Link to="/substitute">

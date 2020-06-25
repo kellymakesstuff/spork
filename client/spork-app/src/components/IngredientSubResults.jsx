@@ -6,6 +6,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Search from "./shared/Search";
 import axios from "axios";
+import '../css/Main.css'
+import DummyComponent from "../components/DummyComponent"
+import CondensedHeader from "./shared/CondensedHeader";
+import downArrow from '../images/down-arrow.png'
 
 export default function IngredientSubResults(props) {
   console.log(props);
@@ -19,20 +23,64 @@ export default function IngredientSubResults(props) {
   // }
 
   const [substitute, updateSubstitute] = useState([]);
+  const [newIngred, updatenewIngred] = useState([])
+  // const [ingredImgName, updateIngredImgName] = useState([])
+  let lastWordImg = []
+  let [lastWord, updateLastWord] = useState([]);
+
+  let renameImg = (newIngred) => {
+    for (let i = 0; i < newIngred.length; i++) {
+      let lastWord = newIngred[i].split(" ").pop();
+      console.log(lastWord, "last word")
+      lastWordImg.push(lastWord)
+      console.log(lastWordImg, "lastWordImg")
+    }
+    updateLastWord(lastWordImg)
+  }
+
+
+  // let imgPopulate = () => {
+  //   for (let i = 0; i < newIngred.length; i++) {
+  //     // let newItem = newIngred[i]
+  //     // let newImg = lastWordImg[i]
+  //     // console.log("newItem", newItem)
+  //     console.log("newImg", newImg[i])
+  //     // return <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${newImg}.jpg`} alt="chosen ingredient" /><p>{newItem}</p></div>
+  //   }
+
+  // }
 
   useEffect(async () => {
     let data = await axios(
       `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=8aa87f0f7bfb4adc8f4270c1c8cc9042&ingredientName=${props.inputValue}`
     );
-    console.log(data, "line 25");
-    // console.log(recipe)
+
+    console.log(data.data, "line 25");
+    updateSubstitute(data.data)
+    renameImg(data.data.substitutes)
+    updatenewIngred(data.data.substitutes)
+    console.log(newIngred, "line 62")
+
+
+
   }, []);
 
-  return (
-    <div>
-      <h2>Hi</h2>
+  return <>
+    <CondensedHeader />
+    <div className="ingSubFull">
+      <div className="header">Substitute Results</div>
+      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`} alt="chosen ingredient" />
+      <h2>{substitute.ingredient}</h2>
+      <img src={downArrow} className="downArrow" alt="down arrow" />
+
+      <div className="ingSubBox">
+        {lastWord.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
+        {newIngred.map(ing => <p>{ing}</p>)}
+
+      </div>
     </div>
-  );
+
+  </>
 
   //   <div>
   //     <div className="header">Substitutions</div>

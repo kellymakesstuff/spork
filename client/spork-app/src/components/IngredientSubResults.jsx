@@ -21,7 +21,34 @@ export default function IngredientSubResults(props) {
   const [substitute, updateSubstitute] = useState([]);
   const [newIngred, updatenewIngred] = useState([]);
   // const [ingredImgName, updateIngredImgName] = useState([])
+<<<<<<< HEAD
   let lastWordImg = [];
+=======
+  let lastWordImg = []
+
+
+  let renameImg = (newIngred) => {
+    for (let i = 0; i < newIngred.length; i++) {
+      let lastWord = newIngred[i].split(" ").pop();
+      console.log(lastWord, "last word")
+      lastWordImg.push(lastWord)
+      console.log(lastWordImg, "lastWordImg")
+    }
+
+  }
+
+
+  // let imgPopulate = () => {
+  //   for (let i = 0; i < newIngred.length; i++) {
+  //     // let newItem = newIngred[i]
+  //     // let newImg = lastWordImg[i]
+  //     // console.log("newItem", newItem)
+  //     console.log("newImg", newImg[i])
+  //     // return <div><img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${newImg}.jpg`} alt="chosen ingredient" /><p>{newItem}</p></div>
+  //   }
+
+  // }
+>>>>>>> 07359daf9336581a5dcdcecc18652a2f167457dd
 
   useEffect(async () => {
     let data = await axios(
@@ -29,6 +56,7 @@ export default function IngredientSubResults(props) {
     );
 
     console.log(data.data, "line 25");
+<<<<<<< HEAD
     updateSubstitute(data.data);
     updatenewIngred(data.data.substitutes);
     console.log(newIngred, "line 29");
@@ -70,6 +98,30 @@ export default function IngredientSubResults(props) {
             </div>
           ))}
         </div>
+=======
+    updateSubstitute(data.data)
+    renameImg(data.data.substitutes)
+    updatenewIngred(data.data.substitutes)
+    console.log(newIngred, "line 29")
+
+
+
+  }, []);
+
+  return <>
+    <CondensedHeader />
+    <div className="ingSubFull">
+      <div className="header">Substitute Results</div>
+      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`} alt="chosen ingredient" />
+      <h2>{substitute.ingredient}</h2>
+      <img src={downArrow} className="downArrow" alt="down arrow" />
+
+      <div className="ingSubBox">
+        {lastWordImg.map(ing => <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`} alt="chosen ingredient" />)}
+        {newIngred.map(ing => <p>{ing}</p>)}
+
+
+>>>>>>> 07359daf9336581a5dcdcecc18652a2f167457dd
       </div>
     </>
   );

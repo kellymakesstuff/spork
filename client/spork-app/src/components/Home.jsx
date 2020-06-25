@@ -140,7 +140,7 @@ class Home extends Component {
         </Route>
 
         <Route  exact path="/comments/:id">
-          <Reviews />
+          <Reviews commentData={this.state.recipes}/>
         </Route>
 
 

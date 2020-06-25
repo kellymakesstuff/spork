@@ -4,6 +4,10 @@
     display: inline-flex;
 }
 
+a:hover {
+    color: grey;
+}
+
 @media screen and (max-width: 768px) {
     .recipe-detail-image {
         width: 225px;
@@ -16,6 +20,18 @@
     margin-top: 1ex;
     margin-bottom: 1ex;
     color: black;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .ingredients-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .recipe-detail-master-container {
@@ -41,6 +57,10 @@
 .recipe-detail-information {
     width: 550px;
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -61,6 +81,8 @@
 .preptime {
     padding-top: 15px;
     padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {

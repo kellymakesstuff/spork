@@ -85,7 +85,10 @@ class Reviews extends Component {
                 <h3>{review.name}</h3>
                 <BeautyStars value={review.starRating} size="10px" />
                 <h3>{review.comment}</h3>
-                </div>
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+              
               )}
     
             </div>

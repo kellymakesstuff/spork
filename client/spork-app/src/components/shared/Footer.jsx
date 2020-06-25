@@ -1,10 +1,11 @@
 import React from 'react'
 import About from '../About'
+import { withRouter, Link, Route } from "react-router-dom"
 
 export default function Footer() {
-    return (
-        <div>
-            <About />
-        </div>
-    )
+  return (
+    <div className="footer">
+      <Link to="/about"><h4>About the Team</h4></Link>
+    </div>
+  )
 }

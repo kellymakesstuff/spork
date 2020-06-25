@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { createComment } from "../services/recipes"
 import BeautyStars from "beauty-stars"
 import { withRouter } from "react-router-dom"
+import "../css/Reviews.css"
+import CondensedHeader from "./shared/CondensedHeader"
+import { Link } from "react-router-dom"
 
 class Reviews extends Component {
     constructor(props) {
@@ -15,7 +18,7 @@ class Reviews extends Component {
         }
     }
 
-    
+
 
     handleNameChange = (e) => {
         this.setState({
@@ -53,32 +56,40 @@ class Reviews extends Component {
         })
 
     }
-    
+
 
     render() {
-      const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
-      // console.log(filteredRecipe)
+        const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
+        // console.log(filteredRecipe)
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Name" onChange={this.handleNameChange} />
-                    <input type="text" placeholder="Comment" onChange={this.handleCommentChange} />
-                    <input type="number" placeholder="Star rating" onChange={this.handleRatingChange} />
+            <>
+                <Link to="/"> <CondensedHeader /> </Link>
+                <div className="reviewDiv">
 
-                    
-                    <button>Submit</button>
-            </form>
-            {/* {filteredRecipe &&
-              <h3>{filteredRecipe.comments[0].comment}</h3>} */}
-            {filteredRecipe && filteredRecipe.comments.map(review => 
-              <div>
-              <h1>{review.comment}</h1>
-                <h1>{review.name}</h1>
-                <BeautyStars value={review.starRating}/>
-                </div>
-              )}
+                    <div className="reviewsHeader" >Reviews</div>
+                    <div className="reviewAndForm">
+                    <h1>Reviews for:</h1>
+                    <h2></h2>
     
-            </div>
+                    {/* {filteredRecipe &&
+              <h3>{filteredRecipe.comments[0].comment}</h3>} */}
+                    {filteredRecipe && filteredRecipe.comments.map(review =>
+                        <div>
+                            <h1>{review.comment}</h1>
+                            <h1>{review.name}</h1>
+                            <BeautyStars value={review.starRating} />
+                        </div>
+                    )}
+                     <form className="reviewForm" onSubmit={this.handleSubmit}>
+                        <input className="reviewInput" type="text" placeholder="Name" onChange={this.handleNameChange} />
+                        <input className="reviewInput commentInput" type="text" placeholder="Comment" onChange={this.handleCommentChange} />
+                        <input className="reviewInput" type="number" placeholder="Star rating" onChange={this.handleRatingChange} />
+                        <button className="reviewButton">Submit</button>
+                    </form>
+                    </div>
+
+                </div>
+            </>
         )
     }
 }

@@ -75,9 +75,21 @@ a :hover {
 
 .carousel-title-container {
     display: flex;
-    width: 50%;
+    width: 55%;
     justify-content: center;
     margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-title-container {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-title-text {
+        font-size: 20px;
+    }
 }
 
 .carousel {
@@ -88,15 +100,37 @@ a :hover {
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .carousel {
+        padding: -50px;
+    }
+}
+
 .carousel-arrow {
     height: 60px;
     width: auto;
 }
 
+@media screen and (max-width: 768px) {
+    .carousel-arrow {
+        height: 25px;
+        width: auto;
+    }
+}
+
+
 .carousel-arrow-next {
     height: 60px;
     width: auto;
     margin-left: -30px;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-arrow-next {
+        height: 25px;
+        width: auto;
+        margin-left: -10px;
+    }
 }
 
 .carousel-image {
@@ -105,18 +139,32 @@ a :hover {
     margin-right: 30px;
 }
 
+@media screen and (max-width: 768px) {
+    .carousel-image {
+        width: 65px;
+        height: 60px;
+        margin-right: 10px
+    }
+}
+
 .sporkLogo {
     height: 226px;
     width: 432px;
 }
 
+@media screen and (max-width: 768px) {
+    .sporkLogo {
+        height: auto;
+        width: 215px;
+    }
+}
 
-/* .headerDiv{
+.headerDiv{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-content: center;
-} */
+}
 
 .headerDiv2 {
     display: flex;
@@ -151,23 +199,6 @@ a :hover {
 
 
 
-/* Ingredident Sub List */
-
-.circleImg {
-    height: 200px;
-    width: 200px;
-    border-radius: 28px;
-}
-
-.ingSubBox {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.ingSubFull {
-    text-align: center;
-}
-
 .clock-logo {
     height: 20px;
     width: 20px
@@ -195,6 +226,19 @@ a :hover {
     flex-wrap: wrap;
     width: 50%;
     justify-content: space-evenly;
+}
+
+
+.footer {
+  display: flex;
+ align-items: baseline center;
+ justify-content: center;
+  background: #FF8340;
+  height: 80px;
+  font-family: 'Red Hat Display', sans-serif;
+  color: white;
+  font-size: 20px;
+  margin: 20px 0px 0px 0px;
 }
 
 .filter-detail {

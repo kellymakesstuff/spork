@@ -43,9 +43,9 @@ export const deleteRecipe = async (id) => {
 
 // Comments CRUD
 
-export const createComment = async (comments) => {
+export const createComment = async (recipeId,comment) => {
   try {
-    const response = await api.post('/comments', comments)
+    const response = await api.post(`/comments/${recipeId}`, comment)
     return response.data
   } catch (error) {
     throw error

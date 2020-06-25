@@ -4,19 +4,21 @@ import { Link, withRouter } from "react-router-dom"
 import clock from "../images/clock.png"
 import CondensedHeader from './shared/CondensedHeader'
 
+
 function RecipeDetail(props) {
   // console.log(props.data)
   const recipeDetail = props.data
   // console.log(recipeDetail)
 
   const filteredRecipe = recipeDetail.find((recipe) => recipe._id === props.match.params.id)
-  // console.log(filteredRecipe)
+  // console.log(filteredRecipe._id)
 
   return (
     <div>
       <Link to="/"><CondensedHeader /></Link>
       <div className="header">Recipe Details</div>
       {filteredRecipe && <div>
+        <Link to={`/comments/${filteredRecipe._id}`}>Review this recipe</Link>
         <h2>{filteredRecipe.dishName}</h2>
         <img src={filteredRecipe.imgUrl} alt={filteredRecipe.dishName} width="250px" />
         <BeautyStars value={filteredRecipe.starRating} size="20px"/>

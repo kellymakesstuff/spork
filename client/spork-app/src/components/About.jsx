@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/Main.css'
+import '../css/About.css'
 import LinkedIn from '../images/linkedin.png'
 import GitHub from '../images/github.png'
 
@@ -15,11 +16,13 @@ export default function About() {
         <div className="sei-about-header">
           <h2>SEI Team</h2>
           <div className="sei-team">
-            <a href="https://github.com/felicia-csolak"><img src={GitHub} /></a><p>Felicia Csolak</p>
-            <a href="https://github.com/rizekj12"><img src={GitHub} /></a><p>Josh Rizzek</p>
-            <a href="https://github.com/kellymakesstuff"><img src={GitHub} /></a><p>Kelly Bergin</p>
-            <a href="https://github.com/ZoobieLoo88"><img src={GitHub} /></a><p>Zach Glassman</p>
-            <a href="https://github.com/zainsattar18"><img src={GitHub} /></a><p>Zain Sattar</p>
+            <div className="felicia">
+              <a href="https://github.com/felicia-csolak"><img src={GitHub} /></a><p>Felicia Csolak</p></div>
+            <div className="josh"><a href="https://github.com/rizekj12"><img src={GitHub} /></a><p>Josh Rizek</p></div>
+            <div className="kelly"><a href="https://github.com/kellymakesstuff"><img src={GitHub} /></a><p>Kelly Bergin</p></div>
+            <div className="zach"><a href="https://github.com/ZoobieLoo88"><img src={GitHub} /></a><p>Zach Glassman</p></div>
+            <div className="zain"><a href="https://github.com/zainsattar18"><img src={GitHub} /></a><p>Zain Sattar</p>
+            </div>
           </div>
         </div>
         <div className="ux-about-header">

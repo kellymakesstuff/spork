@@ -25,10 +25,6 @@ export default function About() {
         <div className="ux-about-header">
           <h2>UX/UI Team</h2>
           <div className="ux-team">
-            <p>Ashley Gluck</p>
-            <p>Juliza Vasquez</p>
-            <p><a href="https://www.linkedin.com/in/stephanie-cardenas-981b2712b/">Stephanie Cardenas</a></p>
-
             <a href="https://www.linkedin.com/in/ashley-gluck-56134b1b1/"><img src={LinkedIn} /></a><p>Ashley Gluck</p>
             <a href="https://github.com/rizekj12"><img src={LinkedIn} /></a><p>Juliza Vasquez</p>
             <a href="https://www.linkedin.com/in/stephanie-cardenas-981b2712b/"><img src={LinkedIn} /></a><p>Stephanie Cardenas</p>

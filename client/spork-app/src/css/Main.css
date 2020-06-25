@@ -151,23 +151,6 @@ a :hover {
 
 
 
-/* Ingredident Sub List */
-
-.circleImg {
-    height: 200px;
-    width: 200px;
-    border-radius: 28px;
-}
-
-.ingSubBox {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.ingSubFull {
-    text-align: center;
-}
-
 .clock-logo {
     height: 20px;
     width: 20px

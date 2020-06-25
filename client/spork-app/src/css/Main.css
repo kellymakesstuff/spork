@@ -37,6 +37,14 @@ a :hover {
     text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+    .header {
+        font-size: 32px;
+        line-height: 44px;
+        height: 45px;
+    }
+}
+
 .search {
     height: 24px;
     width: 331px;
@@ -103,6 +111,9 @@ a :hover {
 @media screen and (max-width: 768px) {
     .carousel {
         padding: -50px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-shrink: 0;
     }
 }
 
@@ -239,6 +250,20 @@ a :hover {
   color: white;
   font-size: 20px;
   margin: 20px 0px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+.footer {
+    height: 40px;
+    font-size: 12px;
+    display: flex;
+    align-items: baseline center;
+    justify-content: center;
+    background: #FF8340;
+    font-family: 'Red Hat Display', sans-serif;
+    color: white;
+    margin: 20px 0px 0px 0px;
+    }
 }
 
 .filter-detail {

@@ -40,3 +40,30 @@ export const deleteRecipe = async (id) => {
     throw error
   }
 }
+
+// Comments CRUD
+
+export const createComment = async (recipeId,comment) => {
+  try {
+    const response = await api.post(`/comments/${recipeId}`, comment)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+export const updateComments = async (id, comments) => {
+  try {
+    const response = await api.put(`/comments/${id}`, comments)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+export const deleteComments = async (id) => {
+  try {
+    const response = await api.delete(`/comments/${id}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

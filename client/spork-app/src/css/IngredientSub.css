@@ -1,0 +1,18 @@
+
+/* Ingredident Sub List */
+
+.circleImg {
+  height: 200px;
+  width: 200px;
+  border-radius: 28px;
+}
+
+.ingSubBox {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.ingSubFull {
+  text-align: center;
+}
+

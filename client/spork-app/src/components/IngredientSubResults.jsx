@@ -1,48 +1,45 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Search from "./shared/Search";
 import axios from "axios";
 import "../css/Main.css";
-import DummyComponent from "../components/DummyComponent";
+import "../css/IngredientSub.css";
 import CondensedHeader from "./shared/CondensedHeader";
 import downArrow from "../images/down-arrow.png";
+import sporkLogo from "../images/spork-logo.png";
+import dotenv from "dotenv";
+dotenv.config();
+const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 
 export default function IngredientSubResults(props) {
-  console.log(props);
-
-  // function SubResults() {
-  //   const filteredData = props.data.filter((ingredient) => {
-  //     return ingredient.substitution
-  //       .toLowerCase()
-  //       .includes(props.inputValue.toLowerCase());
-  //   });
-  // }
-
   const [substitute, updateSubstitute] = useState([]);
   const [newIngred, updatenewIngred] = useState([]);
-  // const [ingredImgName, updateIngredImgName] = useState([])
   let lastWordImg = [];
+  let [lastWord, updateLastWord] = useState([]);
+
+  let renameImg = (newIngred) => {
+    for (let i = 0; i < newIngred.length; i++) {
+      let lastWord = newIngred[i].split(" ").pop();
+      let imgUrl = `https://spoonacular.com/cdn/ingredients_500x500/${lastWord}.jpg`;
+      console.log(lastWord, "last word");
+      lastWordImg.push(imgUrl);
+      console.log(lastWordImg, "lastWordImg");
+    }
+    updateLastWord(lastWordImg);
+  };
 
   useEffect(async () => {
     let data = await axios(
-      `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=8aa87f0f7bfb4adc8f4270c1c8cc9042&ingredientName=${props.inputValue}`
+      `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${API_KEY}&ingredientName=${props.inputValue}`
     );
 
-    console.log(data.data, "line 25");
     updateSubstitute(data.data);
-    updatenewIngred(data.data.substitutes);
-    console.log(newIngred, "line 29");
-
-    let renameImg = (newIngred) => {
-      for (let i = 0; i < newIngred.length; i++) {
-        let lastWord = newIngred[i].split(" ").pop();
-        console.log(lastWord, "last word");
-        lastWordImg.push(lastWord);
-        console.log(lastWordImg, "lastWordImg");
-      }
-    };
-
-    renameImg(newIngred);
+    console.log("data", data.data);
+    if (data.data.status === "failure") {
+      updatenewIngred(["Oops! No substitutes found."]);
+      updateLastWord([sporkLogo]);
+    } else {
+      updatenewIngred(data.data.substitutes);
+      renameImg(data.data.substitutes);
+    }
   }, []);
 
   return (
@@ -59,65 +56,14 @@ export default function IngredientSubResults(props) {
         <img src={downArrow} className="downArrow" alt="down arrow" />
 
         <div className="ingSubBox">
+          {lastWord.map((ing) => (
+            <img className="circleImg" src={ing} alt="chosen ingredient" />
+          ))}
           {newIngred.map((ing) => (
-            <div>
-              <img
-                className="circleImg"
-                src={`https://spoonacular.com/cdn/ingredients_500x500/${ing}.jpg`}
-                alt="chosen ingredient"
-              />
-              <p>{ing}</p>
-            </div>
+            <p>{ing}</p>
           ))}
         </div>
       </div>
     </>
   );
-
-  //   <div>
-  //     <div className="header">Substitutions</div>
-  //     {filteredData.map((substitute) => (
-  //       <div className="filter-detail" key={substitute.ingredientName}>
-  //         <Link to={`/substitute/${substitute}`}>
-  //           {/* <img src={} width="250px" /> */}
-  //           <h3>{substitute.ingredientName}</h3>
-  //         </Link>
-  //         <div className="conversionAmt">{substitute.sourceAmount}</div>
-  //         <div className="conversionUnit">{substitute.sourceUnit}</div>
-  //         <div className="targetUnit">{substitute.targetUnit}</div>
-  //         <img src="/src/images/down-arrow.png" alt="Down Arrow" />
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
 }
-
-// return (
-//   <div>
-//     <div className="header">Substitutions</div>
-//     {filteredData.map((substitute) => (
-//       <div className="filter-detail" key={substitute.ingredientName}>
-//         <Link to={`/substitute/${substitute}`}>
-//           {/* <img src={} width="250px" /> */}
-//           <h3>{substitute.ingredientName}</h3>
-//         </Link>
-//         <div className="conversionAmt">{substitute.sourceAmount}</div>
-//         <div className="conversionUnit">{substitute.sourceUnit}</div>
-//         <div className="targetUnit">{substitute.targetUnit}</div>
-//         <img src={/src/images/down-arrow.png} alt="Down Arrow" />
-//       </div>
-//     ))}
-//   </div>
-// );
-// }
-
-// export const getSubstitution = async () => {
-//   try {
-//     const response = await api.get(
-//       `/food/ingredients/substitutes?ingredientName=${ingredient}`
-//     );
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//   }
-// };

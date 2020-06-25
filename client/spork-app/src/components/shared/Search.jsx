@@ -18,13 +18,14 @@ function Search(props) {
 
   return (
     <div className="main-form">
-      <form className="form">
+      <form className="form" onSubmit={props.onKeyPress}>
         <input
           type="text"
           value={props.inputValue}
           onChange={props.onChange}
           placeholder="Search"
           className="search"
+          // onKeyPress={props.onKeyPress}
         />
       </form>
       <div className="buttons">

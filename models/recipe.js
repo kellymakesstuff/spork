@@ -40,6 +40,7 @@ const Recipe = new Schema(
       stepFour: { type: String, required: true }
     }],
     prepTime: { type: String, required: true },
+    comments: [{type: Schema.Types.ObjectId, ref: "comments" }]
   },
   { timestamps: true }
 )

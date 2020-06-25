@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Link } from "react-router-dom";
 import { getRecipes } from "../services/recipes";
 import Search from "../components/shared/Search";
 import RecipeResults from "../components/RecipeResults";
@@ -8,6 +8,8 @@ import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
 import Footer from '../components/shared/Footer'
+import About from "../components/About"
+import CondensedHeader from "../components/shared/CondensedHeader"
 
 class Home extends Component {
   constructor() {
@@ -78,8 +80,8 @@ class Home extends Component {
     // let key = e.charCode || e.keyCode || 0
     // // console.log(key)
     // if (key === 13) {
-      // console.log(key)
-      this.props.history.push(`/search/${this.state.inputValue}`)
+    // console.log(key)
+    this.props.history.push(`/search/${this.state.inputValue}`)
     // this.setState({inputValue:e.target.value})
     // }
   }
@@ -104,7 +106,7 @@ class Home extends Component {
           <Carousel recipeDetails={this.state.recipes} title="Random recipes" data={this.state.randomizedRecipes} />
 
         </Route>
-
+        <Footer />
         <Route exact path="/search/:inputValue">
           <RecipeResults
             data={this.state.recipes}
@@ -127,7 +129,10 @@ class Home extends Component {
           <RecipeDetail data={this.state.recipes} />
         </Route>
 
-
+        <Route exact path="/about">
+          <CondensedHeader />
+          <About />
+        </Route>
 
       </div>
     )

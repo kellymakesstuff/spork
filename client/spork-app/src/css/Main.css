@@ -198,3 +198,15 @@ a :hover {
     width: 100%;
     justify-content: space-evenly;
 }
+
+.footer {
+  display: flex;
+ align-items: baseline center;
+ justify-content: center;
+  background: #FF8340;
+  height: 80px;
+  font-family: 'Red Hat Display', sans-serif;
+  color: white;
+  font-size: 20px;
+  margin: 20px 0px 0px 0px;
+}

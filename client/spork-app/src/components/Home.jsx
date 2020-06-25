@@ -7,6 +7,7 @@ import Carousel from "./Carousel";
 import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
+import Footer from '../components/shared/Footer'
 
 class Home extends Component {
   constructor() {
@@ -81,45 +82,6 @@ class Home extends Component {
       this.props.history.push(`/search/${this.state.inputValue}`)
     // this.setState({inputValue:e.target.value})
     // }
-  }
-
-
-
-  carouselDataFilter = async () => {
-    const response = await getRecipes()
-    let starData = []
-    let veggieData = []
-    let meatData = []
-    for (let i = 0; i < response.length; i++) {
-      if (response[i].starRating === 5) {
-        starData.push(response[i])
-      } else if (response[i].dishName.includes("Vegetarian") === true) {
-        veggieData.push(response[i])
-      } else if (response[i].dishName.includes("Chicken") === true || response[i].dishName.includes("Beef") === true || response[i].dishName.includes("Pork") === true) {
-        meatData.push(response[i])
-      }
-    }
-    this.setState({
-      fiveStarRecipes: starData,
-      vegetarianRecipes: veggieData,
-      meatRecipes: meatData
-    })
-  }
-
-  randomizeData = async () => {
-    const response = await getRecipes()
-    let randomized = []
-    // let randomNum = Math.floor(Math.random() * response.length)
-    while (randomized.length < 10) {
-      let randomNum = Math.floor(Math.random() * response.length)
-      let rRecipe = response[randomNum]
-      randomized.push(rRecipe)
-    }
-
-    this.setState({
-      randomizedRecipes: randomized
-    })
-
   }
 
   render() {

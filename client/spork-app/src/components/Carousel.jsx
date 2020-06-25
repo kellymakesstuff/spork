@@ -44,27 +44,31 @@ export default class Carousel extends Component {
   }
 
 
-    render() {
-        const index = this.state.currentImageIndex
+  render() {
+    const index = this.state.currentImageIndex
 
-        let firstImages = this.props.data && this.props.data.slice(index, index + 4)
-        if (firstImages && firstImages.length < 4) {
-            firstImages = firstImages.concat(this.props.data.slice(0, 4 - firstImages.length))
-        }
-        
-        console.log(this.props.recipeDetails)
-
-        return (
-            <div className="carousel-container">
-                <h2>{this.props.title}</h2>
-                <div className="carousel">
-                    <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
-                    {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <><Link to={`/recipesDetail/${image._id}`} > <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" /> </Link></>)}
-                    <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow" />
-                </div>
-            </div>
-        )
+    let firstImages = this.props.data && this.props.data.slice(index, index + 4)
+    if (firstImages && firstImages.length < 4) {
+      firstImages = firstImages.concat(this.props.data.slice(0, 4 - firstImages.length))
     }
+
+    console.log(this.props.recipeDetails)
+
+    return (
+      <>
+      <div className="carousel-title-container">
+      <h2>{this.props.title}</h2>
+      </div>
+      <div className="carousel-container">
+        <div className="carousel">
+          <img src={this.state.arrowPrev} onClick={this.prevSlide} className="carousel-arrow" />
+          {firstImages && firstImages.length > 0 && firstImages.map((image, index) => <><Link to={`/recipesDetail/${image._id}`} > <img key={index} src={image.imgUrl} alt="featured recipes" className="carousel-image" /> </Link></>)}
+          <img src={this.state.arrowNext} onClick={this.nextSlide} className="carousel-arrow-next" />
+        </div>
+      </div>
+      </>
+    )
+  }
 
 }
 

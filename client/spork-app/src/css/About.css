@@ -1,0 +1,19 @@
+.about-container {
+  text-align: center;
+}
+
+.sei-team {
+display: flex;
+flex-flow: row wrap;
+justify-content: space-around;
+}
+
+.felicia{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.josh {
+
+}

@@ -57,7 +57,7 @@ export default class Carousel extends Component {
     return (
       <>
       <div className="carousel-title-container">
-      <h2>{this.props.title}</h2>
+      <h2 className="carousel-title-text">{this.props.title}</h2>
       </div>
       <div className="carousel-container">
         <div className="carousel">

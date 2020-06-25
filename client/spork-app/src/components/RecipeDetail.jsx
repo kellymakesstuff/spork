@@ -5,18 +5,20 @@ import clock from "../images/clock.png"
 import CondensedHeader from './shared/CondensedHeader'
 import '../css/RecipeDetails.css'
 
+
 function RecipeDetail(props) {
   // console.log(props.data)
   const recipeDetail = props.data
   // console.log(recipeDetail)
 
   const filteredRecipe = recipeDetail.find((recipe) => recipe._id === props.match.params.id)
-  // console.log(filteredRecipe)
+  // console.log(filteredRecipe._id)
 
   return (
     <div>
       <Link to="/"><CondensedHeader /></Link>
       <div className="header">Recipe Details</div>
+
       <div className="recipe-detail-master-container">
       {filteredRecipe && 
         <>
@@ -33,6 +35,7 @@ function RecipeDetail(props) {
               <img src={clock} alt="clock" className="clock-logo"/>
               {filteredRecipe.prepTime}
             </div>
+
         <div className="ingredients-list">
           <div className="ingredients">Ingredients</div>
           {filteredRecipe.ingredients.map((recipe) =>

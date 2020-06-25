@@ -8,6 +8,7 @@ import RecipeDetail from "../components/RecipeDetail";
 import IngredientSubResults from "../components/IngredientSubResults";
 import Header from "../components/shared/Header"
 import Footer from '../components/shared/Footer'
+import Reviews from "./Reviews"
 
 class Home extends Component {
   constructor() {
@@ -127,6 +128,9 @@ class Home extends Component {
           <RecipeDetail data={this.state.recipes} />
         </Route>
 
+        <Route>
+          <Reviews />
+        </Route>
 
 
       </div>

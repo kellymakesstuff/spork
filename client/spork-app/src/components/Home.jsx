@@ -107,8 +107,10 @@ class Home extends Component {
           <Carousel recipeDetails={this.state.recipes} title="Meat lovers recipes" data={this.state.meatRecipes} />
           <Carousel recipeDetails={this.state.recipes} title="Random recipes" data={this.state.randomizedRecipes} />
 
+          <Footer />
+
         </Route>
-        <Footer />
+       
         <Route exact path="/search/:inputValue">
           <RecipeResults
             data={this.state.recipes}
@@ -137,7 +139,7 @@ class Home extends Component {
           <About />
         </Route>
 
-        <Route>
+        <Route  exact path="/comments/:id">
           <Reviews />
         </Route>
 

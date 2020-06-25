@@ -1,5 +1,7 @@
 .about-container {
   text-align: center;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .sei-team {
@@ -8,12 +10,66 @@ flex-flow: row wrap;
 justify-content: space-around;
 }
 
+.ux-team {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  }
+
 .felicia{
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .josh {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 
+.kelly{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.zach {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.zain {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.ashley {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.juliza {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.stephanie {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+img {
+  height: 50px;
+  width:50px;
+}
+
+a {
+  color: #FF8340;
+  font-style: italic;
 }

@@ -235,7 +235,7 @@ a :hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 50%;
+    width: 65%;
     justify-content: space-evenly;
 }
 
@@ -272,6 +272,7 @@ a .footer {
 
 .filter-detail {
     width: 237px;
+    margin: 2%;
 }
 
 .recipe-results-master-container{

@@ -27,6 +27,7 @@ function RecipeDetail(props) {
     <div>
       <Link to="/"> <CondensedHeader /> </Link>
       <div className="header">Recipe Results</div>
+      <div className="recipe-results-master-container">
       <div className="recipe-results-container">
       {filteredData.map(recipes =>
         <div className="filter-detail" key={recipes.dishName}>
@@ -40,6 +41,7 @@ function RecipeDetail(props) {
           <p>{recipes.prepTime}</p>
         </div>
       )}
+</div>
 </div>
     </div>
   )

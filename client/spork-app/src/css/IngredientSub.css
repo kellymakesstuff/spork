@@ -9,10 +9,26 @@
 
 .ingSubBox {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: row wrap;
 }
 
 .ingSubFull {
   text-align: center;
 }
 
+.ing-sub-results-master-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ing-sub-text {
+  display: flex;
+  flex-flow: row;
+}
+
+.ing-sub-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -13,7 +13,7 @@
 }
 
 .reviewInput{
-  margin:20px;
+  margin:10px;
   width: 250px;
 
 }
@@ -32,3 +32,8 @@
   width: 55px;
   margin: auto;
 }
+
+.reviewDiv{
+  width:50%;
+}
+

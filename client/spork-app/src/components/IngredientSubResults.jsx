@@ -60,6 +60,7 @@ export default function IngredientSubResults(props) {
             <h2>{substitute.ingredient}</h2>
             <img src={downArrow} className="downArrow" alt="down arrow" />
             <div className="ing-sub-container">
+              <div className="master-box">
               <div className="ingSubBox">
                 {lastWord.map((ing) => (
                   <img
@@ -68,13 +69,13 @@ export default function IngredientSubResults(props) {
                     alt="chosen ingredient"
                   />
                 ))}
-                <br />
+                </div>
                 <div className="ing-sub-text">
                   {newIngred.map((ing) => (
-                    <p>{ing}</p>
+                    <p className="sub-name">{ing}</p>
                   ))}
                 </div>
-              </div>
+                </div>
             </div>
           </div>
         </div>

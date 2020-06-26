@@ -9,7 +9,7 @@
 
 .ingSubBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: row wrap;
 }
 
 .ingSubFull {
@@ -23,8 +23,8 @@
 }
 
 .ing-sub-text {
-  display: block;
-  flex-direction: column;
+  display: flex;
+  flex-flow: row;
 }
 
 .ing-sub-container {

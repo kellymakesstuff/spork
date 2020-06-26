@@ -68,6 +68,7 @@ export default function IngredientSubResults(props) {
                     alt="chosen ingredient"
                   />
                 ))}
+                <br />
                 <div className="ing-sub-text">
                   {newIngred.map((ing) => (
                     <p>{ing}</p>

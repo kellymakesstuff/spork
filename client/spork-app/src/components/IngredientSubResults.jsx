@@ -28,7 +28,7 @@ export default function IngredientSubResults(props) {
 
   useEffect(() => {
     async function apiCall() {
-      console.log(API_KEY)
+      console.log(API_KEY);
       let data = await axios(
         `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${API_KEY}&ingredientName=${props.inputValue.toLowerCase()}`
       );
@@ -52,26 +52,30 @@ export default function IngredientSubResults(props) {
         <div className="header">Substitute Results</div>
         <div className="ing-sub-results-master-container">
           <div className="sub-name-image">
-        <img
-          className="circleImg"
-          src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`}
-          alt="chosen ingredient"
-        />
-        <h2>{substitute.ingredient}</h2>
-        <img src={downArrow} className="downArrow" alt="down arrow" />
-<div className="ing-sub-container">
-        <div className="ingSubBox">
-          {lastWord.map((ing) => (
-            <img className="circleImg" src={ing} alt="chosen ingredient" />
-          ))}
-          <div className="ing-sub-text">
-          {newIngred.map((ing) => (
-            <p>{ing}</p>
-          ))}
+            <img
+              className="circleImg"
+              src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue.toLowerCase()}.jpg`}
+              alt="chosen ingredient"
+            />
+            <h2>{substitute.ingredient}</h2>
+            <img src={downArrow} className="downArrow" alt="down arrow" />
+            <div className="ing-sub-container">
+              <div className="ingSubBox">
+                {lastWord.map((ing) => (
+                  <img
+                    className="circleImg"
+                    src={ing}
+                    alt="chosen ingredient"
+                  />
+                ))}
+                <div className="ing-sub-text">
+                  {newIngred.map((ing) => (
+                    <p>{ing}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-        </div>
         </div>
       </div>
     </>

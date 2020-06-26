@@ -25,10 +25,29 @@
 .ing-sub-text {
   display: flex;
   flex-flow: row;
+  justify-content: center;
 }
 
 .ing-sub-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
+  width: 75%;
 }
+
+.sub-name{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3ex;
+  padding: 10px 0px;
+  width:50%;
+  text-align: center;
+  margin:10px;
+  font-size:15px
+}
+
+/* .master-box{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+} */

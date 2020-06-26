@@ -49,7 +49,7 @@ export default function IngredientSubResults(props) {
     <CondensedHeader />
     <div className="ingSubFull">
       <div className="header">Substitute Results</div>
-      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`} alt="chosen ingredient" />
+      <img className="circleImg" src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue.toLowerCase()}.jpg`} alt="chosen ingredient" />
       <h2>{substitute.ingredient}</h2>
       <img src={downArrow} className="downArrow" alt="down arrow" />
 

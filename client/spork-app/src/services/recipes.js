@@ -43,7 +43,7 @@ export const deleteRecipe = async (id) => {
 
 // Comments CRUD
 
-export const createComment = async (recipeId,comment) => {
+export const createComment = async (recipeId, comment) => {
   try {
     const response = await api.post(`/comments/${recipeId}`, comment)
     return response.data
@@ -67,3 +67,4 @@ export const deleteComments = async (id) => {
     throw error
   }
 }
+

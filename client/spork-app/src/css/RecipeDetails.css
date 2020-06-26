@@ -22,6 +22,7 @@ a:hover {
     margin-bottom: 15px;
 }
 
+
 .line-break-vertical {
     background-color: black;
     width: 100%;
@@ -97,7 +98,8 @@ a:hover {
 
 
 .recipe-description-text{
-    padding-bottom: 10px;
+    padding-top: 40px;
+    width: 100%
 }
 
 .preptime {

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { createComment } from "../services/recipes"
+import { createComment, deleteComments, updateComments } from "../services/recipes"
+import EditButton from "./EditButton"
 import BeautyStars from "beauty-stars"
 import { withRouter, Link } from "react-router-dom"
 import CondensedHeader from './shared/CondensedHeader'
+import UpdateReview from "./UpdateReview"
 
 class Reviews extends Component {
   constructor(props) {
@@ -14,9 +16,12 @@ class Reviews extends Component {
         starRating: 0
       },
 
-      allReviews: null
+      allReviews: null,
+      isEmptyState: true
     }
   }
+
+
 
 
   componentDidMount = async () => {
@@ -61,17 +66,55 @@ class Reviews extends Component {
 
     console.log(this.state.allReviews)
   }
+  handleDelete = async (id) => {
+    // e.preventDefault()
+    // let { id } = this.state.allReviews._id 
+    const deleted = await deleteComments(id)
+    const allReviews = this.state.allReviews.filter(review => {
+      return id !== review._id
+    })
+    this.setState({
+      allReviews: allReviews
+    })
+  }
+
+  triggerAddTripState = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: false,
+      isAddTripState: true
+    })
+  }
+
+  handleUpdate = async (id) => {
+    // e.preventDefault()
+    // let { id } = this.state.allReviews._id 
+    const updated = await updateComments(id)
+    const allReviews = this.state.allReviews.filter(review => {
+      return id !== review._id
+    })
+    this.setState({
+      review: updated
+    })
+    console.log(this.state.review)
+  }
 
 
   render() {
     const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
-    // console.log(filteredRecipe)
+
+
     return (
       <div>
         {filteredRecipe &&
           <Link to={`/search/${this.props.inputValue}/${filteredRecipe._id}`}><CondensedHeader /></Link>
         }
+
+
+
+
         <div className="header">Reviews</div>
+        <h2>Submit a Review</h2>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Name" onChange={this.handleNameChange} />
           <input type="text" placeholder="Comment" onChange={this.handleCommentChange} />
@@ -80,23 +123,31 @@ class Reviews extends Component {
 
           <button>Submit</button>
         </form>
+
+        <div>
+          {this.state.isEmptyState && <editButton addTrip={this.triggerAddTripState} />}
+
+          {this.state.isAddTripState && <UpdateReview props={this.state} />}
+        </div>
+
         <h1>Reviews for:</h1>
         {filteredRecipe &&
           <div>{filteredRecipe.dishName}</div>}
 
-
-
+        {/* //review itself  */}
 
         {this.state.allReviews && this.state.allReviews.map(review =>
           <div>
             <h3>{review.name}</h3>
             <BeautyStars value={review.starRating} size="10px" />
             <h3>{review.comment}</h3>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={() => this.handleUpdate(review._id)}> grab review</button>
+            <EditButton addTrip={this.triggerAddTripState} />
+            <button onClick={() => this.handleDelete(review._id)}>Delete</button>
           </div>
 
-        )}
+        )
+        }
 
       </div>
     )

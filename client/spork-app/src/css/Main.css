@@ -231,6 +231,13 @@ a :hover {
     height: 212px;
 }
 
+@media screen and (max-width: 768px) {
+    .recipe-results-image {
+        width: 190px;
+        height: 175px;
+    }
+}
+
 .recipe-results-container {
     display: flex;
     flex-direction: row;

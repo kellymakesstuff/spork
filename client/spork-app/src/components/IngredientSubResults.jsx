@@ -50,6 +50,8 @@ export default function IngredientSubResults(props) {
       <CondensedHeader />
       <div className="ingSubFull">
         <div className="header">Substitute Results</div>
+        <div className="ing-sub-results-master-container">
+          <div className="sub-name-image">
         <img
           className="circleImg"
           src={`https://spoonacular.com/cdn/ingredients_500x500/${props.inputValue}.jpg`}
@@ -57,14 +59,19 @@ export default function IngredientSubResults(props) {
         />
         <h2>{substitute.ingredient}</h2>
         <img src={downArrow} className="downArrow" alt="down arrow" />
-
+<div className="ing-sub-container">
         <div className="ingSubBox">
           {lastWord.map((ing) => (
             <img className="circleImg" src={ing} alt="chosen ingredient" />
           ))}
+          <div className="ing-sub-text">
           {newIngred.map((ing) => (
             <p>{ing}</p>
           ))}
+          </div>
+        </div>
+        </div>
+        </div>
         </div>
       </div>
     </>

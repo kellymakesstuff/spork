@@ -1,0 +1,39 @@
+.reviewsHeader{
+  font-size: 40px;  
+  text-align: center;
+  align-content: center;
+  background-color: #FF8340;
+  height: 100px;
+}
+
+.reviewForm{
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.reviewInput{
+  margin:10px;
+  width: 250px;
+
+}
+.reviewAndForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+}
+
+.commentInput{
+  height: 50px;
+
+}
+
+.reviewButton{
+  width: 55px;
+  margin: auto;
+}
+
+.reviewDiv{
+  width:50%;
+}
+

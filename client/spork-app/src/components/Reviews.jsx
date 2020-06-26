@@ -5,6 +5,7 @@ import BeautyStars from "beauty-stars"
 import { withRouter, Link } from "react-router-dom"
 import CondensedHeader from './shared/CondensedHeader'
 import UpdateReview from "./UpdateReview"
+import "../css/Reviews.css"
 
 class Reviews extends Component {
   constructor(props) {
@@ -114,15 +115,17 @@ class Reviews extends Component {
 
 
         <div className="header">Reviews</div>
+        <div className="reviewAndForm">
         <h2>Submit a Review</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Name" onChange={this.handleNameChange} />
-          <input type="text" placeholder="Comment" onChange={this.handleCommentChange} />
-          <input type="number" placeholder="Star rating" onChange={this.handleRatingChange} />
+        <form className="reviewForm" onSubmit={this.handleSubmit}>
+          <input className="reviewInput" type="text" placeholder="Name" onChange={this.handleNameChange} />
+          <input className="reviewInput commentInput" type="text" placeholder="Comment" onChange={this.handleCommentChange} />
+          <input className="reviewInput" type="number" placeholder="Star rating" onChange={this.handleRatingChange} />
 
 
-          <button>Submit</button>
+          <button className="reviewButton" >Submit</button>
         </form>
+        
 
         <div>
           {this.state.isEmptyState && <editButton addTrip={this.triggerAddTripState} />}
@@ -137,21 +140,23 @@ class Reviews extends Component {
         {/* //review itself  */}
 
         {this.state.allReviews && this.state.allReviews.map(review =>
-          <div>
+          <div className="reviewDiv">
+              
             <h3>{review.name}</h3>
             <BeautyStars value={review.starRating} size="10px" />
             <h3>{review.comment}</h3>
             <button onClick={() => this.handleUpdate(review._id)}> grab review</button>
             <EditButton addTrip={this.triggerAddTripState} />
             <button onClick={() => this.handleDelete(review._id)}>Delete</button>
+            <hr/>
           </div>
 
         )
         }
 
       </div>
+      </div>
     )
   }
 }
-
 export default withRouter(Reviews) 

@@ -140,7 +140,7 @@ class Home extends Component {
         </Route>
 
         <Route  exact path="/comments/:id">
-          <Reviews commentData={this.state.recipes}/>
+          {this.state.recipes.length > 0 && <Reviews commentData={this.state.recipes} />}
         </Route>
 
 

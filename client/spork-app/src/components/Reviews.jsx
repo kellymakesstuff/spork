@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createComment } from "../services/recipes"
+import { createComment, deleteComments } from "../services/recipes"
 import BeautyStars from "beauty-stars"
 import { withRouter, Link } from "react-router-dom"
 import CondensedHeader from './shared/CondensedHeader'
@@ -61,7 +61,17 @@ class Reviews extends Component {
 
     console.log(this.state.allReviews)
   }
-
+  handleDelete = async (id) => {
+    // e.preventDefault()
+    // let { id } = this.state.allReviews._id 
+    const deleted = await deleteComments(id)
+    const allReviews = this.state.allReviews.filter(review => {
+      return id !== review._id 
+    })
+    this.setState({
+      allReviews:allReviews
+    })
+  }
 
   render() {
     const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
@@ -93,7 +103,7 @@ class Reviews extends Component {
             <BeautyStars value={review.starRating} size="10px" />
             <h3>{review.comment}</h3>
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={()=> this.handleDelete(review._id)}>Delete</button>
           </div>
 
         )}

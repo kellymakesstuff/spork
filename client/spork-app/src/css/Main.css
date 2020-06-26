@@ -252,6 +252,10 @@ a :hover {
   margin: 20px 0px 0px 0px;
 }
 
+a .footer {
+    color: white;
+}
+
 @media screen and (max-width: 768px) {
 .footer {
     height: 40px;

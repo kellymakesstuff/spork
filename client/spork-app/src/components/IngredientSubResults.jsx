@@ -5,8 +5,8 @@ import "../css/IngredientSub.css";
 import CondensedHeader from "./shared/CondensedHeader";
 import downArrow from "../images/down-arrow.png";
 import sporkLogo from "../images/spork-logo.png";
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 const API_KEY = process.env.REACT_APP_SPOON_API_KEY;
 
 export default function IngredientSubResults(props) {
@@ -28,6 +28,7 @@ export default function IngredientSubResults(props) {
 
   useEffect(() => {
     async function apiCall() {
+      console.log(API_KEY)
       let data = await axios(
         `https://api.spoonacular.com/food/ingredients/substitutes?apiKey=${API_KEY}&ingredientName=${props.inputValue.toLowerCase()}`
       );

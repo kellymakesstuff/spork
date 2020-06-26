@@ -1,5 +1,4 @@
 import React from 'react'
-import About from '../About'
 import { withRouter, Link, Route } from "react-router-dom"
 
 export default function Footer() {

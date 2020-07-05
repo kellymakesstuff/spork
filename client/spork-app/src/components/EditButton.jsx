@@ -1,7 +1,7 @@
-import React from 'react'
+// import React from 'react'
 
-const EditButton = props => {
-  return <button onClick={props.addTrip}>Edit Review</button>
-}
+// const EditButton = props => {
+//   return <button onClick={props.addTrip}>Edit Review</button>
+// }
 
-export default EditButton
+// export default EditButton

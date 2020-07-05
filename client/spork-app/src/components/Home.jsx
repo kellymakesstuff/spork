@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, withRouter, Link } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { getRecipes } from "../services/recipes";
 import Search from "../components/shared/Search";
 import RecipeResults from "../components/RecipeResults";
@@ -32,7 +32,6 @@ class Home extends Component {
     this.setState({
       recipes: response
     })
-    // console.log(response[0].ingredients[0])
   }
 
   carouselDataFilter = async () => {
@@ -77,15 +76,8 @@ class Home extends Component {
   }
 
   onKeyPress = (e) => {
-    // console.log(e)
     e.preventDefault()
-    // let key = e.charCode || e.keyCode || 0
-    // // console.log(key)
-    // if (key === 13) {
-    // console.log(key)
     this.props.history.push(`/search/${this.state.inputValue}`)
-    // this.setState({inputValue:e.target.value})
-    // }
   }
 
   render() {

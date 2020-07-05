@@ -18,10 +18,10 @@ export default function About() {
         <div className="ux-about-header">
           <h2>UX/UI Team</h2>
           <div className="ux-team">
-            <div className="ashley"><a href="https://www.linkedin.com/in/ashley-gluck-56134b1b1/"><img src={LinkedIn} /></a><p>Ashley Gluck</p></div>
-            <div className="Juliza"><a href="https://github.com/rizekj12"><img src={LinkedIn} /></a><p>Juliza Vasquez</p></div>
+            <div className="ashley"><a href="https://www.linkedin.com/in/ashley-gluck-56134b1b1/"><img src={LinkedIn} alt=""/></a><p>Ashley Gluck</p></div>
+            <div className="Juliza"><a href="https://github.com/" ><img src={LinkedIn} alt=""/></a><p>Juliza Vasquez</p></div>
             <div className="stephanie">
-              <a href="https://www.linkedin.com/in/stephanie-cardenas-981b2712b/"><img src={LinkedIn} /></a><p>Stephanie Cardenas</p></div>
+              <a href="https://www.linkedin.com/in/stephanie-cardenas-981b2712b/"><img src={LinkedIn} alt=""/></a><p>Stephanie Cardenas</p></div>
 
           </div>
         </div>
@@ -31,11 +31,11 @@ export default function About() {
 
           <div className="sei-team">
             <div className="felicia">
-              <a href="https://github.com/felicia-csolak"><img src={GitHub} /></a><p>Felicia Csolak</p></div>
-            <div className="josh"><a href="https://github.com/rizekj12"><img src={GitHub} /></a><p>Josh Rizek</p></div>
-            <div className="kelly"><a href="https://github.com/kellymakesstuff"><img src={GitHub} /></a><p>Kelly Bergin</p></div>
-            <div className="zach"><a href="https://github.com/ZoobieLoo88"><img src={GitHub} /></a><p>Zach Glassman</p></div>
-            <div className="zain"><a href="https://github.com/zainsattar18"><img src={GitHub} /></a><p>Zain Sattar</p>
+              <a href="https://github.com/felicia-csolak"><img src={GitHub} alt=""/></a><p>Felicia Csolak</p></div>
+            <div className="josh"><a href="https://github.com/rizekj12"><img src={GitHub} alt=""/></a><p>Josh Rizek</p></div>
+            <div className="kelly"><a href="https://github.com/kellymakesstuff"><img src={GitHub} alt=""/></a><p>Kelly Bergin</p></div>
+            <div className="zach"><a href="https://github.com/ZoobieLoo88"><img src={GitHub} alt=""/></a><p>Zach Glassman</p></div>
+            <div className="zain"><a href="https://github.com/zainsattar18"><img src={GitHub} alt=""/></a><p>Zain Sattar</p>
             </div>
           </div>
         </div>

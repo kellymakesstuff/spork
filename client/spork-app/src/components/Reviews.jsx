@@ -88,7 +88,6 @@ class Reviews extends Component {
 
 
 
-
   render() {
     const filteredRecipe = this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
 

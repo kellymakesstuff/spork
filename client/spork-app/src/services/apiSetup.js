@@ -4,7 +4,6 @@ let apiUrl
 
 const apiUrls = {
   production: "https://spork-project3.herokuapp.com/api",
-  // development: "https://spork-project3.herokuapp.com/api",
   development: "http://localhost:3001/api"
 }
 

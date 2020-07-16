@@ -1,8 +1,10 @@
+![Spork](https://i.imgur.com/C8yDrQM.png)
+
 ## Overview
 
 **SPORK**
 
-SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by key word. Find substitutions for common ingredients. Add your own personal recipes to our database.
+SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by keyword. Find substitutions for common ingredients. Add your own personal recipes to our database.
 
 ### Team Members
 
@@ -12,10 +14,6 @@ SPORK is a simple to use application to find your new favorite recipes. Search f
 - [Zach](https://github.com/zoobieloo88)
 - [Zain](https://github.com/zainsattar18)
 
-### Team Expectations
-Team values and expectations can be found on our project's [Group Expectation Setting Document](https://github.com/kellymakesstuff/spork/blob/dev/planning.txt).
-
-<br>
 
 ## Sprint 1
 
@@ -23,17 +21,14 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 <br>
 
-### Goals
+### MVP and Goals
 
-1. Build API
-2. search (same component can be used universally)
-3. first search render (with recipe)
-4. recipe detail page 
-5. substitution search and detail page (including measurement conversion)
-6. API crud options
-7. CSS and flexbox
-8. first screen with Carousel
-9. media query for mobile version
+1. Build backend with express and MongoDB
+2. Two-function search bar
+3. Recipe search results screen
+4. Recipe detail screen
+5. Substitution search and detail screen (including measurement conversion)
+6. Responsive to tablet and mobile versions
 
 <br>
 
@@ -41,7 +36,9 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 #### Wireframes
 
-- [Layout on Figma](https://www.figma.com/file/hMdGIyJqlrRW0IC76TyCpm/U3-P3?node-id=0%3A1)
+- [View Extended Wireframs on Figma](https://www.figma.com/file/hMdGIyJqlrRW0IC76TyCpm/U3-P3?node-id=0%3A1)
+
+![wireframes](https://i.imgur.com/xAnw5oL.png)
 
 
 #### Component Hierarchy
@@ -54,13 +51,14 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 #### Database Schema
 
-> Use this section to outline the schema for your database models.
+```
 
-#### Express Routes
+```
+### Express Routes
 
-> Use this section to anticipate the routes you need to define in your Express server.
+```
 
-<br>
+```
 
 ### Libraries
 
@@ -68,28 +66,28 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 |    Library     | Description                                |
 | :------------: | :----------------------------------------- |
-|     React      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  React Router  | _Lorem ipsum dolor sit amet, consectetur._ |
-|    Express     | _Lorem ipsum dolor sit amet, consectetur._ |
-| Express Router | _Lorem ipsum dolor sit amet, consectetur._ |
-|    Mongoose    | _Lorem ipsum dolor sit amet, consectetur._ |
+|     React      | Using class and function-based components |
+|  React Router  | Router to accomodate FullRecipe, Substitutions, Comments renders by id |
+|    Express     | Creating backend API with full CRUD|
+| Express Router | |
+|    Mongoose    | |
 
 <br>
 
 ***
 
-## Plan Your Next Sprint
+## Goals for Sprint 2
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your next sprint. This will be helpful when you return to your project after graduation!
+> Coming soon
 
 ***
 
 ## Code Issues & Resolutions
 
-> Use this section to document and keep track of all major issues encountered and their resolution, if you'd like.
+> Coming soon
 
 ***
 
 ## Change Log
 
-> Use this section to document and keep track of any changes that need to be made to your planned Sprint and provide reasons.
+> Coming soon

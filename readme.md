@@ -19,13 +19,15 @@ SPORK is a simple to use application to find your new favorite recipes. Search f
 
 ## Sprint 1
 
-The mission of **Spork** is to provide a platform for beginner cooks where they can entertain their friends and loved ones using food items that are already at their disposal.
+Spork is being completed in consideration of the UX team's design vision and desired featured list as presented. The mission of sprint 1 was to get an MVP product that had its own backend, implemented a dual-feature search bar (both to search for recipes and ingredient substitutions), had screens for search results, substitutions, and individual recipes, and was responsive to tablet and mobile versions. 
 
-<br>
+Special thanks to the UX team for an incredible design and great teamwork. (They're also pretty funny.)
+
+[Learn more about the team here!](http://spork-app.surge.sh/about)
+
 
 ### MVP and Goals
 
-Spork is being completed in consideration of the UX team's design vision and desired featured list as presented.
 
 1. Build backend with express and MongoDB
 2. Two-function search bar

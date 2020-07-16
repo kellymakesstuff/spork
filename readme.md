@@ -63,7 +63,17 @@ Special thanks to the UX team for an incredible design and great teamwork. (They
 ### Express Routes
 
 ```
-
+router.get('/recipes', controllers.getRecipes)
+router.get('/recipes/:id', controllers.getRecipe)
+router.post('/recipes', controllers.createRecipe)
+router.put('/recipes/:id', controllers.updateRecipe)
+router.delete('/recipes/:id', controllers.deleteRecipe)
+router.post('/comments/:id', controllers.createComment)
+//createComment would be the recipe _id
+router.put('/comments/:id', controllers.updateComment)
+//updateComment would be the comment _id
+router.delete('/comments/:id', controllers.deleteComment)
+//deleteComment would be the comment _id
 ```
 
 ### Libraries

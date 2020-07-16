@@ -6,7 +6,7 @@
 
 See it live! [http://spork-app.surge.sh/](http://spork-app.surge.sh/)
 
-SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by keyword. Find substitutions for common ingredients. Add your own personal recipes to our database.
+SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by keyword. Find substitutions for common ingredients. Add your own personal recipes to our database. Add comments on your favorite recipes.
 
 ### Team Members
 

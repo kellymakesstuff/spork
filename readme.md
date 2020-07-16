@@ -4,6 +4,8 @@
 
 **SPORK**
 
+See it live! [http://spork-app.surge.sh/](http://spork-app.surge.sh/)
+
 SPORK is a simple to use application to find your new favorite recipes. Search for easy at-home recipes by keyword. Find substitutions for common ingredients. Add your own personal recipes to our database.
 
 ### Team Members
@@ -17,11 +19,13 @@ SPORK is a simple to use application to find your new favorite recipes. Search f
 
 ## Sprint 1
 
-The mission of **Spork** is to provide a platform for beginner cooks where they can entertain their friends and loved ones using food items that are already at their disposal
+The mission of **Spork** is to provide a platform for beginner cooks where they can entertain their friends and loved ones using food items that are already at their disposal.
 
 <br>
 
 ### MVP and Goals
+
+Spork is being completed in consideration of the UX team's design vision and desired featured list as presented.
 
 1. Build backend with express and MongoDB
 2. Two-function search bar
@@ -36,7 +40,7 @@ The mission of **Spork** is to provide a platform for beginner cooks where they 
 
 #### Wireframes
 
-- [View Extended Wireframs on Figma](https://www.figma.com/file/hMdGIyJqlrRW0IC76TyCpm/U3-P3?node-id=0%3A1)
+- [View Extended Wireframes on Figma](https://www.figma.com/file/hMdGIyJqlrRW0IC76TyCpm/U3-P3?node-id=0%3A1)
 
 ![wireframes](https://i.imgur.com/xAnw5oL.png)
 

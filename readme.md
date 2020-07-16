@@ -107,7 +107,16 @@ const Recipe = new Schema(
 
 For comments:
 ```
+const Comment = new Schema(
+    {
+        name: {type: String, required: true},
+        comment: {type: String, required: true},
+        starRating: {type: Number, required: true}
 
+    },{
+        timestamps: true
+    }
+)
 ```
 
 ### Express Routes

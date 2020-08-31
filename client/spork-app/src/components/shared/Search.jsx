@@ -27,7 +27,7 @@ function Search(props) {
           className="search"
         />
       </form>
-      <div className="buttons">
+      <div className="search-buttons">
         <Link to={`/search/${props.inputValue}`}>
           <button className="recipe-button">Recipe</button>
         </Link>

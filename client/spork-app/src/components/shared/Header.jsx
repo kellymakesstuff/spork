@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import SignInHeader from './SignInHeader'
 import sporkLogo from '../../images/spork-logo.png'
 import "../../css/Main.css"
 
 export default class Header extends Component {
   render() {
     return (
-      <div className="headerDiv">
+      <div className="headerDiv"> 
+        <div className='sign-in'><SignInHeader/>  </div>
         <img src={sporkLogo} alt="spork logo" className="sporkLogo" />
+        
         <div>
 
           <p className="headerText">Find a recipe</p>

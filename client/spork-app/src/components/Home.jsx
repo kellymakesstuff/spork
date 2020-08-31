@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import { getRecipes } from "../services/recipes";
 import Search from "../components/shared/Search";
 import RecipeResults from "../components/RecipeResults";
@@ -11,6 +11,14 @@ import Footer from '../components/shared/Footer'
 import About from "../components/About"
 import CondensedHeader from "../components/shared/CondensedHeader"
 import Reviews from "./Reviews"
+import { createStructuredSelector } from 'reselect'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import SignInAndSignUp from '../page/SignInAndSignUp'
+import { auth, createUserProfile } from '../firebase/firebase'
+import { setCurrentUser } from '../redux/user/user.action'
+import { selectCurrentUser } from '../redux/user/user.selector'
+
 
 
 class Home extends Component {
@@ -25,6 +33,8 @@ class Home extends Component {
       meatRecipes: []
     }
   }
+  unsubscribeFromAuth = null
+
   async componentDidMount() {
     const response = await getRecipes()
     this.carouselDataFilter()
@@ -32,6 +42,26 @@ class Home extends Component {
     this.setState({
       recipes: response
     })
+    const { setCurrentUser } = this.props
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfile(userAuth)
+
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+          // console.log(this.state)
+        })
+      }
+      setCurrentUser(userAuth)
+      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
+    })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth()
   }
 
   carouselDataFilter = async () => {
@@ -102,7 +132,7 @@ class Home extends Component {
           <Footer />
 
         </Route>
-       
+
         <Route exact path="/search/:inputValue">
           <RecipeResults
             data={this.state.recipes}
@@ -131,15 +161,30 @@ class Home extends Component {
           <About />
         </Route>
 
-        <Route  exact path="/comments/:id">
+        <Route exact path="/comments/:id">
           {this.state.recipes.length > 0 && <Reviews commentData={this.state.recipes} />}
         </Route>
 
-
+        <Route exact path="/signin" render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUp />)} />
 
       </div>
     )
   }
 }
 
-export default withRouter(Home)
+
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+})
+
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+// export default compose(
+//   withRouter,
+//   connect(mapStateToProps,mapDispatchToProps)
+// )(Home)
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Home))

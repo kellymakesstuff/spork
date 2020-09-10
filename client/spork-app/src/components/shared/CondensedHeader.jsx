@@ -8,6 +8,5 @@ export default function CondensedHeader() {
 
   return <div>
     <Link to="/" exact><img src={sporkConLogo} alt="spork logo" className="sporkConLogo" /></Link>
-
   </div>
 }

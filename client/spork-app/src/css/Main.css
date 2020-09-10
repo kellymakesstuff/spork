@@ -19,7 +19,7 @@ h3 {
 }
 
 a {
-    color: black;
+    color: #FF8340;
     text-decoration: none;
 }
 
@@ -71,7 +71,7 @@ a :hover {
     margin-left: 1ex;
 }
 
-.buttons {
+.search-buttons {
     margin-top: 2ex;
 }
 
@@ -288,3 +288,4 @@ a .footer {
     justify-content: center;
     padding-top: 50px;
 }
+

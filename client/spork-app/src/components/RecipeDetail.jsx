@@ -7,12 +7,9 @@ import '../css/RecipeDetails.css'
 
 
 function RecipeDetail(props) {
-  // console.log(props.data)
   const recipeDetail = props.data
-  // console.log(recipeDetail)
-
   const filteredRecipe = recipeDetail.find((recipe) => recipe._id === props.match.params.id)
-  // console.log(filteredRecipe._id)
+  
 
   return (
     <div>

@@ -8,8 +8,6 @@ import '../css/Main.css'
 
 function RecipeDetail(props) {
   
-  // const filteredData = props.data
-  //   .filter(search => Object.values(search.ingredients[0]).map(ingredient => ingredient.toLowerCase()).includes(props.inputValue.toLowerCase()))
 
   let filteredData = []
   props.data.forEach(recipe =>
@@ -20,7 +18,6 @@ function RecipeDetail(props) {
     })
   )
  
-  // console.log(filteredData)
 
 
   return (

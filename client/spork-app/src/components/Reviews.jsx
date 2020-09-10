@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { createComment, deleteComments, updateComments } from "../services/recipes"
-import EditButton from "./EditButton"
 import BeautyStars from "beauty-stars"
 import { withRouter, Link } from "react-router-dom"
 import CondensedHeader from './shared/CondensedHeader'
-import UpdateReview from "./UpdateReview"
+// import UpdateReview from "./UpdateReview"
+import Modal from 'react-modal'
 import "../css/Reviews.css"
 
 class Reviews extends Component {
@@ -14,16 +14,15 @@ class Reviews extends Component {
       review: {
         name: "",
         comment: "",
-        starRating: 0
+        starRating: 0,
+        isOpen: false,
+        update: ''
       },
 
       allReviews: null,
       isEmptyState: true
     }
   }
-
-
-
 
   componentDidMount = async () => {
     const filteredRecipe = await this.props.commentData.find((recipe) => recipe._id === this.props.match.params.id)
@@ -38,6 +37,31 @@ class Reviews extends Component {
       }
     })
   }
+
+  openModal = () => {
+    this.setState({
+      isOpen: true
+    })
+  }
+
+  hideModal = () => {
+    this.setState({
+      isOpen: false
+    })
+  }
+
+  updateModal = (id) => {
+    this.setState({
+      update: id
+    })
+  }
+
+  hideUpdateModal = () => {
+    this.setState({
+      update: false
+    })
+  }
+
 
   handleCommentChange = (e) => {
     this.setState({
@@ -79,40 +103,17 @@ class Reviews extends Component {
     })
   }
 
-  handleUp= async (id, comments) => {
-    // e.preventDefault()
-    // let { id } = this.state.allReviews._id
+  handleUpdate = async (id, comments) => {
+
     let update = await updateComments(id, this.state.review)
     const allReviews = this.state.allReviews.map(review => (
       review._id === id ? update : review
     ))
-    // console.log(allReviews)
     this.setState({
       allReviews: allReviews
     })
   }
 
-
-  triggerAddTripState = () => {
-    this.setState({
-      ...this.state,
-      isEmptyState: false,
-      isAddTripState: true
-    })
-  }
-
-  // handleUpdate = async (id) => {
-  //   // e.preventDefault()
-  //   // let { id } = this.state.allReviews._id 
-  //   const updated = await updateComments(id)
-  //   const allReviews = this.state.allReviews.filter(review => {
-  //     return id !== review._id
-  //   })
-  //   this.setState({
-  //     review: updated
-  //   })
-  //   console.log(this.state.review)
-  // }
 
 
   render() {
@@ -131,20 +132,22 @@ class Reviews extends Component {
         <div className="reviewAndForm">
           <h2>Submit a Review</h2>
           <form className="reviewForm" onSubmit={this.handleSubmit}>
-            <input className="reviewInput" type="text" placeholder="Name" onChange={this.handleNameChange} value={this.state.review.name}/>
-            <input className="reviewInput commentInput" type="text" placeholder="Comment" onChange={this.handleCommentChange} value={this.state.review.comment}/>
-            <input className="reviewInput" type="number" placeholder="Star rating" onChange={this.handleRatingChange} value={this.state.review.starRating}/>
+            <input className="reviewInput" type="text" placeholder="Name" onChange={this.handleNameChange} value={this.state.review.name} />
+            <textarea className="commentInput" type="text" placeholder="Comment" onChange={this.handleCommentChange} value={this.state.review.comment} />
+            <input className="star-rating" type="number" placeholder="Star rating" onChange={this.handleRatingChange} value={this.state.review.starRating} min="0"
+              max="5" />
 
-
-            <button className="reviewButton" >Submit</button>
+            <div className="submit">
+              <button className="submit-button">Submit</button>
+            </div>
           </form>
 
 
-          <div>
+          {/* <div>
             {this.state.isEmptyState && <editButton addTrip={this.triggerAddTripState} />}
 
             {this.state.isAddTripState && <UpdateReview props={this.state} />}
-          </div>
+          </div> */}
 
           <h1>Reviews for:</h1>
           {filteredRecipe &&
@@ -158,10 +161,43 @@ class Reviews extends Component {
               <h3>{review.name}</h3>
               <BeautyStars value={review.starRating} size="10px" />
               <h3>{review.comment}</h3>
-              {/* <button onClick={() => this.handleUpdate(review._id)}> grab review</button>
-            <EditButton addTrip={this.triggerAddTripState} /> */}
-              <button onClick={() => this.handleUp(review._id)}>Edit Review</button>
-              <button onClick={() => this.handleDelete(review._id)}>Delete</button>
+              <button className="update-button" onClick={this.openModal}>Update Review</button>
+              <Modal
+                isOpen={this.state.isOpen}
+                onRequestClose={this.hideModal}
+                contentLabel="Example Modal"
+              >
+                 <button className="hidemodal" onClick={this.hideModal}>X</button>
+                <h2 className="reviewAndForm">Edit Review</h2>
+                <div className="center-form">
+                  <form className="edit-form" onSubmit={this.handleSubmit}>
+                    <input
+                      className="edit-name"
+                      type="text" placeholder="Name"
+                      onChange={this.handleNameChange}
+                      value={this.state.review.name} />
+                    <input
+                      className="edit-comment"
+                      type="text" placeholder="Comment"
+                      onChange={this.handleCommentChange}
+                      value={this.state.review.comment} />
+                    <input
+                      className="edit-rating"
+                      type="number"
+                      placeholder="Star rating"
+                      onChange={this.handleRatingChange}
+                      value={this.state.review.starRating}
+                      min="0"
+                      max="5"
+                    />
+
+                  </form>
+                </div>
+                <div className="submit">
+                  <button className="edit-button" onClick={() => this.handleUpdate(review._id)}>Edit Review</button>
+                </div>
+              </Modal>
+              <button className="delete-button" onClick={() => this.handleDelete(review._id)}>Delete</button>
               <hr />
             </div>
 

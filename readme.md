@@ -162,7 +162,7 @@ router.delete('/comments/:id', controllers.deleteComment)
 
 ## Code Issues & Resolutions
 
-> Coming soon
+Current known issue: initial API load is large and thus takes time to populate carousel on home page (solution coming soon)
 
 ***
 

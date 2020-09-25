@@ -164,6 +164,7 @@ router.delete('/comments/:id', controllers.deleteComment)
 
 Current known issue: initial API load is large and thus takes time to populate carousel on home page (solution coming soon)
 
+Current known issue: New API Key needed for Spoonacular for Substitutes page, Substitutes page may not populate until new key is inserted (working on now)
 ***
 
 ## Change Log
